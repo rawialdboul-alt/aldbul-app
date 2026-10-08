@@ -1,84 +1,196 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الدبل للخدمات</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الدبل للخدمات</title>
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-body{
-font-family:Arial,sans-serif;
-background:#f5f5f5;
-color:#222;
-}
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      color: #222;
+    }
 
-header{
-background:#111;
-color:white;
-padding:22px 16px;
-text-align:center;
-}
+    header {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
 
-.logo{
-width:75px;
-height:75px;
-margin:auto;
-border-radius:18px;
-background:#f28c00;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:32px;
-font-weight:bold;
-}
+    header h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+    }
 
-header h1{
-margin-top:12px;
-font-size:25px;
-}
+    header p {
+      margin: 0;
+      font-size: 17px;
+    }
 
-header p{
-margin-top:6px;
-color:#ddd;
-}
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
 
-.container{
-padding:18px;
-max-width:650px;
-margin:auto;
-}
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 22px;
+      margin: 18px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
 
-.welcome{
-background:white;
-border-radius:18px;
-padding:20px;
-margin-bottom:18px;
-text-align:center;
-box-shadow:0 3px 12px #0001;
-}
+    .card h2 {
+      margin-top: 0;
+    }
 
-.welcome h2{
-margin-bottom:8px;
-}
+    .services {
+      display: grid;
+      gap: 15px;
+    }
 
-.section{
-margin-bottom:22px;
-}
+    .service {
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      padding: 18px;
+    }
 
-.section-title{
-font-size:21px;
-font-weight:bold;
-margin-bottom:12px;
-}
+    .service h3 {
+      margin-top: 0;
+    }
 
-.card{
-background:white;
-border-radius:17px;
-padding:18px;
-margin-bottom:12px;
-box-shadow:0 3px 12px #0001;
-}
+    .button {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: #111;
+      color: white;
+      padding: 14px;
+      border-radius: 12px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
 
-.card
+    .whatsapp {
+      background: #25D366;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111;
+      color: white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>الدبل للخدمات</h1>
+  <p>خدمات المناسبات والنظافة بكل احترافية</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>🎉 الدبل للمناسبات</h2>
+    <p>
+      تجهيز وتنظيم المناسبات والأفراح وتوفير الخدمات والمستلزمات
+      التي تجعل مناسبتك أكثر ترتيبًا وتميزًا.
+    </p>
+
+    <div class="services">
+
+      <div class="service">
+        <h3>👰 تجهيز المناسبات والأفراح</h3>
+        <p>تنظيم وتجهيز المناسبة حسب احتياجاتك.</p>
+      </div>
+
+      <div class="service">
+        <h3>🍽️ تجهيز وخدمة المناسبات</h3>
+        <p>توفير مستلزمات وخدمات الضيافة للمناسبات.</p>
+      </div>
+
+      <div class="service">
+        <h3>🪑 تأجير مستلزمات المناسبات</h3>
+        <p>كراسي وطاولات ومستلزمات وتجهيزات المناسبات.</p>
+      </div>
+
+    </div>
+
+    <a class="button whatsapp"
+       href="https://wa.me/218000000000"
+       target="_blank">
+      📲 احجز عبر واتساب
+    </a>
+  </div>
+
+
+  <div class="card">
+    <h2>🧹 الدبل للنظافة</h2>
+    <p>
+      خدمات نظافة للمنازل والحدائق والمستشفيات والشركات.
+    </p>
+
+    <div class="services">
+
+      <div class="service">
+        <h3>🏠 نظافة المنازل</h3>
+        <p>تنظيف وترتيب المنازل حسب الطلب.</p>
+      </div>
+
+      <div class="service">
+        <h3>🌳 نظافة الحدائق</h3>
+        <p>تنظيف وترتيب الحدائق والمساحات الخارجية.</p>
+      </div>
+
+      <div class="service">
+        <h3>🏢 نظافة الشركات</h3>
+        <p>خدمات نظافة للمكاتب والمنشآت.</p>
+      </div>
+
+      <div class="service">
+        <h3>🏥 نظافة المستشفيات</h3>
+        <p>خدمات نظافة للمنشآت الصحية حسب الحاجة.</p>
+      </div>
+
+    </div>
+
+    <a class="button whatsapp"
+       href="https://wa.me/218000000000"
+       target="_blank">
+      📲 اطلب الخدمة عبر واتساب
+    </a>
+  </div>
+
+
+  <div class="card">
+    <h2>📞 تواصل معنا</h2>
+    <p>للحجز والاستفسار تواصل معنا مباشرة عبر واتساب.</p>
+
+    <a class="button whatsapp"
+       href="https://wa.me/218000000000"
+       target="_blank">
+      💬 تواصل معنا
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 الدبل للخدمات</p>
+  <p>خدمتكم شرف لنا</p>
+</footer>
+
+</body>
+</html>
