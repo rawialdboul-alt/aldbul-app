@@ -1,196 +1,471 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الدبل للخدمات</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171717">
+<meta name="description" content="الدبل للخدمات، خدمات المناسبات والنظافة وطلبات الحجز">
+<title>الدبل للخدمات</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      margin: 0;
-      background: #f5f5f5;
-      color: #222;
-    }
-
-    header {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 30px 15px;
-    }
-
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 32px;
-    }
-
-    header p {
-      margin: 0;
-      font-size: 17px;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 18px;
-      padding: 22px;
-      margin: 18px 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    .card h2 {
-      margin-top: 0;
-    }
-
-    .services {
-      display: grid;
-      gap: 15px;
-    }
-
-    .service {
-      border: 1px solid #ddd;
-      border-radius: 14px;
-      padding: 18px;
-    }
-
-    .service h3 {
-      margin-top: 0;
-    }
-
-    .button {
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      background: #111;
-      color: white;
-      padding: 14px;
-      border-radius: 12px;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
-    .whatsapp {
-      background: #25D366;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      background: #111;
-      color: white;
-      margin-top: 30px;
-    }
-  </style>
+<style>
+:root {
+  --dark: #171717;
+  --gold: #d6a343;
+  --cream: #f8f5ed;
+  --white: #ffffff;
+  --text: #252525;
+  --muted: #696969;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Tahoma, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.8;
+}
+a { -webkit-tap-highlight-color: transparent; }
+header {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 28px 16px;
+  border-bottom: 4px solid var(--gold);
+}
+.logo {
+  width: 76px;
+  height: 76px;
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 10px;
+  color: var(--gold);
+  font-size: 38px;
+  font-weight: bold;
+}
+header h1 {
+  color: var(--gold);
+  font-size: 30px;
+  margin: 4px 0;
+}
+header p { margin: 0; color: #eeeeee; }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #252525;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 7px;
+  font-size: 14px;
+}
+nav a:hover { background: #70501e; }
+.hero {
+  padding: 42px 18px;
+  text-align: center;
+  background: linear-gradient(135deg, #fff9e9, #e9dcc0);
+}
+.hero h2 { font-size: 28px; margin: 0 0 10px; }
+.hero p { color: #555; max-width: 550px; margin: 0 auto 20px; }
+.hero .hero-mark { font-size: 42px; color: #a87524; }
+.btn {
+  display: inline-block;
+  background: #9b6b20;
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  padding: 12px 18px;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn:hover { background: #765019; }
+.btn-dark { background: #222; }
+section {
+  max-width: 1000px;
+  padding: 30px 16px;
+  margin: auto;
+}
+.section-title {
+  text-align: center;
+  font-size: 25px;
+  margin: 0 0 8px;
+}
+.section-desc {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 auto 22px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--white);
+  border: 1px solid #e9e2d4;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px #00000008;
+}
+.card-icon { font-size: 38px; }
+.card h3 { margin: 5px 0; font-size: 19px; }
+.card p { color: var(--muted); font-size: 14px; }
+.price { color: #98691e; font-weight: bold; }
+.card .btn { margin-top: 8px; }
+.about {
+  background: #222;
+  color: white;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+.about p { color: #eeeeee; }
+#booking form {
+  background: white;
+  border: 1px solid #e9e2d4;
+  border-radius: 15px;
+  padding: 22px;
+  max-width: 650px;
+  margin: auto;
+}
+label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: bold;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8d3ca;
+  border-radius: 8px;
+  background: white;
+  color: #222;
+  font: inherit;
+  font-size: 16px;
+}
+textarea { min-height: 100px; resize: vertical; }
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid #d6a343;
+  border-color: transparent;
+}
+#booking form button { width: 100%; margin-top: 20px; }
+.note {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+.contact-box {
+  text-align: center;
+  background: white;
+  padding: 24px;
+  border-radius: 15px;
+  border: 1px solid #e9e2d4;
+}
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 24px 15px;
+  border-top: 4px solid var(--gold);
+}
+footer strong { color: var(--gold); font-size: 20px; }
+footer p { margin: 5px 0; font-size: 13px; color: #ddd; }
+.whatsapp-float {
+  position: fixed;
+  bottom: 16px;
+  left: 15px;
+  z-index: 20;
+  background: #238b50;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 12px #0003;
+}
+@media (max-width: 480px) {
+  header h1 { font-size: 26px; }
+  .hero h2 { font-size: 24px; }
+  .section-title { font-size: 22px; }
+  nav a { font-size: 12px; padding: 6px 8px; }
+}
+</style>
 </head>
 
 <body>
 
 <header>
+  <div class="logo">✦</div>
   <h1>الدبل للخدمات</h1>
-  <p>خدمات المناسبات والنظافة بكل احترافية</p>
+  <p>خدمات المناسبات والنظافة في مكان واحد</p>
 </header>
 
-<div class="container">
+<nav aria-label="القائمة الرئيسية">
+  <a href="#home">الرئيسية</a>
+  <a href="#events">المناسبات</a>
+  <a href="#cleaning">النظافة</a>
+  <a href="#booking">طلب خدمة</a>
+  <a href="#contact">التواصل</a>
+</nav>
 
-  <div class="card">
-    <h2>🎉 الدبل للمناسبات</h2>
+<main>
+  <div class="hero" id="home">
+    <div class="hero-mark">✦</div>
+    <h2>أهلًا بكم في الدبل للخدمات</h2>
     <p>
-      تجهيز وتنظيم المناسبات والأفراح وتوفير الخدمات والمستلزمات
-      التي تجعل مناسبتك أكثر ترتيبًا وتميزًا.
+      مناسباتكم تستحق الاهتمام، وخدمات النظافة تستحق التنظيم.
+      اختر الخدمة التي تحتاجها وأرسل طلبك بسهولة.
     </p>
-
-    <div class="services">
-
-      <div class="service">
-        <h3>👰 تجهيز المناسبات والأفراح</h3>
-        <p>تنظيم وتجهيز المناسبة حسب احتياجاتك.</p>
-      </div>
-
-      <div class="service">
-        <h3>🍽️ تجهيز وخدمة المناسبات</h3>
-        <p>توفير مستلزمات وخدمات الضيافة للمناسبات.</p>
-      </div>
-
-      <div class="service">
-        <h3>🪑 تأجير مستلزمات المناسبات</h3>
-        <p>كراسي وطاولات ومستلزمات وتجهيزات المناسبات.</p>
-      </div>
-
-    </div>
-
-    <a class="button whatsapp"
-       href="https://wa.me/218000000000"
-       target="_blank">
-      📲 احجز عبر واتساب
-    </a>
+    <a class="btn" href="#events">اكتشف خدماتنا</a>
+    <a class="btn btn-dark" href="#booking">اطلب خدمة</a>
   </div>
 
+  <section id="events">
+    <h2 class="section-title">🎉 الدبل للمناسبات</h2>
+    <p class="section-desc">خدمات وتجهيزات للمناسبات والأفراح</p>
 
-  <div class="card">
-    <h2>🧹 الدبل للنظافة</h2>
-    <p>
-      خدمات نظافة للمنازل والحدائق والمستشفيات والشركات.
-    </p>
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon">💍</div>
+        <h3>دخلة العروس</h3>
+        <p>تجهيز وتنسيق دخلة العروس بما يناسب طبيعة المناسبة.</p>
+        <div class="price">السعر حسب الطلب</div>
+        <button class="btn" onclick="chooseService('دخلة العروس')">اطلب الخدمة</button>
+      </article>
 
-    <div class="services">
+      <article class="card">
+        <div class="card-icon">🪑</div>
+        <h3>الجرتق والجلسات</h3>
+        <p>ترتيب وتنسيق جلسات الجرتق وتجهيز المكان للمناسبة.</p>
+        <div class="price">السعر حسب الطلب</div>
+        <button class="btn" onclick="chooseService('الجرتق والجلسات')">اطلب الخدمة</button>
+      </article>
 
-      <div class="service">
-        <h3>🏠 نظافة المنازل</h3>
-        <p>تنظيف وترتيب المنازل حسب الطلب.</p>
-      </div>
+      <article class="card">
+        <div class="card-icon">🍲</div>
+        <h3>الطباخون</h3>
+        <p>طلب خدمات الطهي وتجهيز الطعام للمناسبات حسب الاتفاق.</p>
+        <div class="price">السعر حسب الطلب</div>
+        <button class="btn" onclick="chooseService('الطباخون')">اطلب الخدمة</button>
+      </article>
 
-      <div class="service">
-        <h3>🌳 نظافة الحدائق</h3>
+      <article class="card">
+        <div class="card-icon">🎪</div>
+        <h3>تأجير معدات المناسبات</h3>
+        <p>استفسر عن المعدات والتجهيزات المتوفرة للإيجار.</p>
+        <div class="price">السعر حسب الطلب</div>
+        <button class="btn" onclick="chooseService('تأجير معدات المناسبات')">اطلب الخدمة</button>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🎊</div>
+        <h3>تنظيم المناسبات</h3>
+        <p>استفسر عن خدمات ترتيب وتنظيم مناسبتك من البداية.</p>
+        <div class="price">السعر حسب تفاصيل الطلب</div>
+        <button class="btn" onclick="chooseService('تنظيم المناسبات')">اطلب الخدمة</button>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🔒</div>
+        <h3>خدمات الخصوصية</h3>
+        <p>استفسر عن ترتيبات الخصوصية المتاحة لمناسبتك.</p>
+        <div class="price">حسب الاتفاق</div>
+        <button class="btn" onclick="chooseService('خدمات الخصوصية')">اطلب الخدمة</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="cleaning">
+    <h2 class="section-title">🧹 الدبل للنظافة</h2>
+    <p class="section-desc">اختر المكان المطلوب تنظيفه وأرسل تفاصيلك</p>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-icon">🏠</div>
+        <h3>نظافة المنازل</h3>
+        <p>خدمات تنظيف المنازل وترتيبها حسب احتياجات العميل.</p>
+        <div class="price">السعر حسب حجم العمل</div>
+        <button class="btn" onclick="chooseService('نظافة المنازل')">اطلب الخدمة</button>
+      </article>
+
+      <article class="card">
+        <div class="card-icon">🌳</div>
+        <h3>نظافة الحدائق</h3>
         <p>تنظيف وترتيب الحدائق والمساحات الخارجية.</p>
-      </div>
+        <div class="price">السعر حسب حجم العمل</div>
+        <button class="btn" onclick="chooseService('نظافة الحدائق')">اطلب الخدمة</button>
+      </article>
 
-      <div class="service">
-        <h3>🏢 نظافة الشركات</h3>
-        <p>خدمات نظافة للمكاتب والمنشآت.</p>
-      </div>
+      <article class="card">
+        <div class="card-icon">🏥</div>
+        <h3>نظافة المستشفيات</h3>
+        <p>استفسر عن خدمات النظافة المخصصة للمنشآت الصحية.</p>
+        <div class="price">حسب تفاصيل الطلب</div>
+        <button class="btn" onclick="chooseService('نظافة المستشفيات')">اطلب الخدمة</button>
+      </article>
 
-      <div class="service">
-        <h3>🏥 نظافة المستشفيات</h3>
-        <p>خدمات نظافة للمنشآت الصحية حسب الحاجة.</p>
-      </div>
+      <article class="card">
+        <div class="card-icon">🏢</div>
+        <h3>نظافة الشركات والمؤسسات</h3>
+        <p>خدمات نظافة للمكاتب والشركات والمؤسسات.</p>
+        <div class="price">حسب تفاصيل الطلب</div>
+        <button class="btn" onclick="chooseService('نظافة الشركات والمؤسسات')">اطلب الخدمة</button>
+      </article>
 
+      <article class="card">
+        <div class="card-icon">🧽</div>
+        <h3>خدمات نظافة أخرى</h3>
+        <p>اكتب تفاصيل المكان والخدمة المطلوبة في نموذج الطلب.</p>
+        <div class="price">حسب الاتفاق</div>
+        <button class="btn" onclick="chooseService('خدمات نظافة أخرى')">اطلب الخدمة</button>
+      </article>
     </div>
+  </section>
 
-    <a class="button whatsapp"
-       href="https://wa.me/218000000000"
-       target="_blank">
-      📲 اطلب الخدمة عبر واتساب
-    </a>
-  </div>
+  <section>
+    <div class="about">
+      <h2>لماذا تختار الدبل للخدمات؟</h2>
+      <p>خدمات متنوعة، وطلبات واضحة، وتواصل مباشر لمعرفة الأسعار والتفاصيل.</p>
+      <a class="btn" href="#booking">ابدأ طلبك الآن</a>
+    </div>
+  </section>
 
+  <section id="booking">
+    <h2 class="section-title">📋 طلب خدمة أو حجز</h2>
+    <p class="section-desc">أدخل بياناتك وتفاصيل الخدمة المطلوبة</p>
 
-  <div class="card">
-    <h2>📞 تواصل معنا</h2>
-    <p>للحجز والاستفسار تواصل معنا مباشرة عبر واتساب.</p>
+    <form id="bookingForm">
+      <label for="customerName">الاسم الكامل</label>
+      <input id="customerName" name="customerName" required
+        autocomplete="name" placeholder="اكتب اسمك">
 
-    <a class="button whatsapp"
-       href="https://wa.me/218000000000"
-       target="_blank">
-      💬 تواصل معنا
-    </a>
-  </div>
+      <label for="customerPhone">رقم الهاتف</label>
+      <input id="customerPhone" name="customerPhone" type="tel"
+        required autocomplete="tel" placeholder="اكتب رقم هاتفك">
 
-</div>
+      <label for="city">المدينة أو المنطقة</label>
+      <input id="city" name="city" required placeholder="مثال: بنغازي">
+
+      <label for="service">الخدمة المطلوبة</label>
+      <select id="service" name="service" required>
+        <option value="">اختر الخدمة</option>
+        <option>دخلة العروس</option>
+        <option>الجرتق والجلسات</option>
+        <option>الطباخون</option>
+        <option>تأجير معدات المناسبات</option>
+        <option>تنظيم المناسبات</option>
+        <option>خدمات الخصوصية</option>
+        <option>نظافة المنازل</option>
+        <option>نظافة الحدائق</option>
+        <option>نظافة المستشفيات</option>
+        <option>نظافة الشركات والمؤسسات</option>
+        <option>خدمات نظافة أخرى</option>
+        <option>خدمة أخرى</option>
+      </select>
+
+      <label for="date">التاريخ المطلوب</label>
+      <input id="date" name="date" type="date">
+
+      <label for="details">تفاصيل إضافية</label>
+      <textarea id="details" name="details"
+        placeholder="اكتب التفاصيل والكمية أو حجم العمل المطلوب"></textarea>
+
+      <button class="btn" type="submit">متابعة الطلب عبر واتساب</button>
+      <p class="note">
+        ستظهر رسالة طلبك في واتساب لمراجعتها قبل إرسالها.
+      </p>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">📞 تواصل معنا</h2>
+    <div class="contact-box">
+      <h3>الدبل للخدمات</h3>
+      <p>للحجز والاستفسار عن الخدمات والأسعار، تواصل مع الشركة.</p>
+      <p>سيتم تفعيل التواصل المباشر بعد إضافة رقم واتساب الشركة.</p>
+      <a class="btn" href="#booking">أرسل طلبك</a>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <p>© 2026 الدبل للخدمات</p>
-  <p>خدمتكم شرف لنا</p>
+  <strong>✦ الدبل للخدمات ✦</strong>
+  <p>المناسبات • النظافة • الاهتمام بالتفاصيل</p>
+  <p>جميع الحقوق محفوظة © الدبل للخدمات</p>
 </footer>
+
+<a class="whatsapp-float" href="#booking" aria-label="طلب خدمة">💬 اطلب خدمة</a>
+
+<script>
+/*
+  مهم:
+  استبدل الرقم التالي برقم واتساب الشركة الدولي،
+  بالأرقام فقط، دون علامة + أو مسافات.
+  مثال شكلي لرقم ليبي: 2189XXXXXXXX
+*/
+const COMPANY_WHATSAPP = "218XXXXXXXXX";
+
+function chooseService(serviceName) {
+  const select = document.getElementById("service");
+  select.value = serviceName;
+
+  if (select.value !== serviceName) {
+    const option = document.createElement("option");
+    option.value = serviceName;
+    option.textContent = serviceName;
+    select.appendChild(option);
+    select.value = serviceName;
+  }
+
+  document.getElementById("booking").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (!/^\d{10,15}$/.test(COMPANY_WHATSAPP)) {
+    alert("الواجهة جاهزة. يلزم إضافة رقم واتساب الشركة الصحيح لتفعيل إرسال الطلبات.");
+    return;
+  }
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const city = document.getElementById("city").value.trim();
+  const service = document.getElementById("service").value;
+  const date = document.getElementById("date").value || "لم يحدد";
+  const details = document.getElementById("details").value.trim() || "لا توجد تفاصيل إضافية";
+
+  const message =
+    "طلب خدمة جديد - الدبل للخدمات\n\n" +
+    "الاسم: " + name + "\n" +
+    "هاتف العميل: " + phone + "\n" +
+    "المدينة: " + city + "\n" +
+    "الخدمة: " + service + "\n" +
+    "التاريخ المطلوب: " + date + "\n" +
+    "التفاصيل: " + details;
+
+  const url = "https://wa.me/" + COMPANY_WHATSAPP +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank", "noopener");
+});
+</script>
 
 </body>
 </html>
