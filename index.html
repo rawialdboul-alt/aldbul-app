@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -7,432 +6,410 @@
 <meta name="theme-color" content="#102438">
 <title>الدبل للخدمات</title>
 <style>
-:root{
+:root {
   --navy:#102438;
   --gold:#e7b94f;
   --cream:#fffaf0;
-  --green:#075b43;
-  --text:#243343;
+  --white:#ffffff;
 }
-*{box-sizing:border-box}
-body{
-  margin:0;background:#f6f5f0;color:var(--text);
-  font-family:Tahoma,Arial,sans-serif;
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:var(--cream);
+  color:var(--navy);
 }
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-header{
-  background:linear-gradient(140deg,#102438,#1c3d50);
-  color:white;text-align:center;padding:26px 16px 24px;
+header {
+  background:var(--navy);
+  color:white;
+  text-align:center;
+  padding:28px 16px;
   border-bottom:4px solid var(--gold);
 }
-.brand{font-size:35px;font-weight:900;color:var(--gold)}
-.star{font-size:32px;color:#ffe19a}
-.slogan{
-  display:inline-block;margin-top:12px;padding:10px 18px;
-  border:1px solid var(--gold);border-radius:25px;
-  color:#fff0c5;font-weight:bold;
+.logo {
+  width:78px;
+  height:78px;
+  margin:0 auto 12px;
+  border-radius:50%;
+  background:var(--gold);
+  color:var(--navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:38px;
+  font-weight:bold;
 }
-header p{color:#e4e8ed;font-size:13px}
-main{max-width:950px;margin:auto;padding:16px}
-.welcome{text-align:center;padding:18px 0}
-.welcome h2{margin:0 0 8px;color:var(--navy)}
-.welcome p{font-size:14px;color:#65717a}
-.main-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.main-card{
-  overflow:hidden;border-radius:20px;background:white;
-  box-shadow:0 5px 16px #14263818;border:1px solid #e5e0d5;
+h1 { margin:8px 0; font-size:27px; }
+header p { margin:8px 0 0; color:#eee; }
+main {
+  max-width:850px;
+  margin:auto;
+  padding:18px;
 }
-.main-card img{width:100%;height:185px;object-fit:cover;display:block}
-.card-body{padding:15px}
-.event .card-body{border-top:4px solid var(--gold)}
-.clean .card-body{border-top:4px solid #178666}
-.main-card h3{margin:0 0 8px;font-size:20px}
-.main-card p{font-size:13px;line-height:1.8;color:#647078}
-.primary{
-  width:100%;padding:12px;border:0;border-radius:10px;
-  color:white;background:var(--navy);font-weight:bold;
+h2 { font-size:21px; }
+.intro {
+  text-align:center;
+  padding:8px 0 18px;
 }
-.event .primary{background:#81501b}
-.clean .primary{background:var(--green)}
-.section-head{
-  display:flex;align-items:center;justify-content:space-between;
-  gap:10px;margin:24px 0 12px;
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:14px;
 }
-.section-head h2{font-size:20px;margin:0;color:var(--navy)}
-.back{
-  border:0;border-radius:9px;background:#e8edf0;
-  padding:9px 13px;color:var(--navy);
+.card {
+  background:white;
+  border:1px solid #e7dfce;
+  border-radius:16px;
+  padding:20px 12px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 3px 10px #1024380c;
 }
-.service-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.service{
-  display:flex;flex-direction:column;overflow:hidden;
-  background:white;border-radius:15px;border:1px solid #e7e5de;
-  box-shadow:0 3px 10px #1525360b;
+.card:active { transform:scale(.98); }
+.card .symbol { font-size:35px; }
+.card h3 { margin:10px 0 4px; }
+.card p { margin:5px 0; font-size:13px; color:#666; }
+.panel {
+  background:white;
+  border:1px solid #e7dfce;
+  border-radius:16px;
+  padding:18px;
+  margin-top:20px;
 }
-.service img{width:100%;height:145px;object-fit:cover}
-.service-info{padding:13px;flex:1}
-.service h3{margin:0 0 8px;font-size:16px}
-.service p{font-size:13px;line-height:1.7;color:#68737a}
-.service button{margin-top:8px}
-.small-btn{
-  border:0;border-radius:9px;background:#e9f1eb;
-  color:#075b43;padding:10px;font-weight:bold;width:100%;
+.hidden { display:none !important; }
+button, .button {
+  border:0;
+  border-radius:10px;
+  background:var(--gold);
+  color:var(--navy);
+  font-weight:bold;
+  font-size:16px;
+  padding:12px 16px;
+  cursor:pointer;
 }
-.notice{
-  padding:15px;background:#fff6df;border-radius:12px;
-  font-size:13px;line-height:1.8;
+.secondary {
+  background:var(--navy);
+  color:white;
 }
-.panel{
-  margin:18px 0;background:white;padding:17px;
-  border-radius:16px;border:1px solid #e2e2dc;
+.back { margin-bottom:14px; }
+label {
+  display:block;
+  margin:13px 0 6px;
+  font-weight:bold;
 }
-.panel h3{margin-top:0;color:var(--navy)}
-.field{display:block;margin:12px 0}
-.field span{display:block;font-size:13px;margin-bottom:6px}
-.field input,.field textarea,.field select{
-  width:100%;padding:12px;border:1px solid #d5d9da;
-  border-radius:9px;background:white;color:#222;
+input, select, textarea {
+  width:100%;
+  padding:12px;
+  border:1px solid #c9c9c9;
+  border-radius:9px;
+  font-size:16px;
+  background:white;
 }
-.field textarea{min-height:75px;resize:vertical}
-.admin-item{
-  padding:12px 0;border-bottom:1px solid #e8e8e8;
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
+textarea { min-height:80px; resize:vertical; }
+.actions {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:16px;
 }
-.delete{background:#fae6e3;color:#a42d25;border:0;padding:8px;border-radius:8px}
-footer{
-  background:var(--navy);color:white;text-align:center;
-  padding:23px 12px;margin-top:28px;font-size:13px;
+.note {
+  font-size:13px;
+  color:#666;
+  line-height:1.8;
 }
-footer strong{color:var(--gold);font-size:18px}
-.nav{
-  position:sticky;bottom:0;display:flex;justify-content:space-around;
-  background:#102438;color:white;padding:10px 3px;
-  box-shadow:0 -3px 15px #0002;z-index:10;
+.status {
+  background:#f4f0e5;
+  border-radius:9px;
+  padding:10px;
+  font-size:13px;
+  line-height:1.7;
 }
-.nav button{background:none;border:0;color:white;font-size:12px;padding:5px}
-.nav button span{display:block;font-size:20px;margin-bottom:4px}
-.nav button.active{color:var(--gold)}
-.hidden{display:none!important}
-.empty{text-align:center;color:#78818a;padding:24px}
-@media(max-width:520px){
-  main{padding:12px}
-  .brand{font-size:29px}
-  .main-cards{grid-template-columns:1fr}
-  .main-card img{height:190px}
-  .service-list{grid-template-columns:1fr 1fr;gap:9px}
-  .service img{height:115px}
-  .service-info{padding:10px}
-  .service h3{font-size:14px}
-  .service p{font-size:12px}
+footer {
+  text-align:center;
+  padding:24px 12px;
+  font-size:13px;
+  color:#666;
 }
+.service {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  background:#fffaf0;
+  padding:13px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #eee1c2;
+}
+.service button { font-size:14px; padding:9px 12px; }
 </style>
 </head>
-<body>
 
+<body>
 <header>
-  <div class="star">★</div>
-  <div class="brand">الدبل للخدمات</div>
-  <div class="slogan">★ الدبل نجم جديد في سماء الخرطوم ★</div>
-  <p>خدمات متنوعة ... واهتمام بالتفاصيل</p>
+  <div class="logo">✦</div>
+  <h1>الدبل للخدمات</h1>
+  <p>خدمات المناسبات والنظافة في مكان واحد</p>
 </header>
 
 <main>
   <section id="home">
-    <div class="welcome">
-      <h2>مرحباً بكم في الدبل للخدمات</h2>
-      <p>اختار القسم المناسب، واكتشف الخدمات المتاحة.</p>
+    <div class="intro">
+      <h2>مرحبًا بكم في الدبل</h2>
+      <p>اختر القسم الذي تريد الاستفادة من خدماته.</p>
     </div>
 
-    <div class="main-cards">
-      <article class="main-card event">
-        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85"
-          alt="قاعة مناسبات مجهزة بإضاءة دافئة">
-        <div class="card-body">
-          <h3>★ الدبل للمناسبات</h3>
-          <p>الصالات والقاعات، السيرفيس والخدمات، الطباخون والوجبات، وتجهيز المناسبات.</p>
-          <button class="primary" onclick="openSection('events')">اكتشف خدمات المناسبات ←</button>
-        </div>
-      </article>
+    <div class="cards">
+      <div class="card" onclick="openSection(2)">
+        <div class="symbol">🎉</div>
+        <h3>الدبل للمناسبات</h3>
+        <p>فطور وغداء وعشاء المناسبات</p>
+      </div>
 
-      <article class="main-card clean">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=85"
-          alt="خدمات تنظيف احترافية">
-        <div class="card-body">
-          <h3>✦ الدبل للنظافة</h3>
-          <p>نظافة الشركات والمؤسسات، المنازل والشقق، الحدائق، وخدمات أخرى.</p>
-          <button class="primary" onclick="openSection('cleaning')">اكتشف خدمات النظافة ←</button>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="details" class="hidden">
-    <div class="section-head">
-      <h2 id="sectionTitle">الخدمات</h2>
-      <button class="back" onclick="goHome()">← الرئيسية</button>
-    </div>
-    <p id="sectionDescription"></p>
-    <div id="serviceList" class="service-list"></div>
-  </section>
-
-  <section id="admin" class="hidden">
-    <div class="section-head">
-      <h2>إدارة الخدمات</h2>
-      <button class="back" onclick="goHome()">← الرئيسية</button>
-    </div>
-
-    <div class="notice">
-      يمكنك إضافة الخدمات وتعديل بياناتها وحذفها من هذه الواجهة.
-      التغييرات تُحفظ في المتصفح على هذا الجهاز فقط، ولا تظهر تلقائياً
-      لبقية الزوار أو على أجهزتهم.
+      <div class="card" onclick="openSection(3)">
+        <div class="symbol">🧹</div>
+        <h3>الدبل للنظافة</h3>
+        <p>منازل وشركات ومستشفيات وحدائق</p>
+      </div>
     </div>
 
     <div class="panel">
-      <h3>إضافة قسم جديد</h3>
-      <label class="field">
-        <span>اسم القسم</span>
-        <input id="newGroup" placeholder="مثال: تأجير مستلزمات المناسبات">
-      </label>
-      <label class="field">
-        <span>يتبع لأي واجهة؟</span>
-        <select id="newParent">
-          <option value="events">الدبل للمناسبات</option>
-          <option value="cleaning">الدبل للنظافة</option>
-        </select>
-      </label>
-      <button class="primary" onclick="addGroup()">إضافة القسم</button>
-    </div>
-
-    <div class="panel">
-      <h3>إضافة خدمة جديدة</h3>
-      <label class="field">
-        <span>اسم الخدمة</span>
-        <input id="newName" placeholder="اكتب اسم الخدمة">
-      </label>
-      <label class="field">
-        <span>القسم</span>
-        <select id="newCategory"></select>
-      </label>
-      <label class="field">
-        <span>وصف الخدمة</span>
-        <textarea id="newDesc" placeholder="اكتب تفاصيل الخدمة"></textarea>
-      </label>
-      <label class="field">
-        <span>رابط صورة الخدمة</span>
-        <input id="newImage" type="url" placeholder="https://...">
-      </label>
-      <label class="field">
-        <span>السعر (اختياري)</span>
-        <input id="newPrice" placeholder="مثال: حسب الطلب">
-      </label>
-      <button class="primary" onclick="addService()">حفظ الخدمة</button>
-    </div>
-
-    <div class="panel">
-      <h3>الأقسام والخدمات الحالية</h3>
-      <div id="adminList"></div>
+      <h2>لماذا الدبل؟</h2>
+      <p>نساعدك في الوصول إلى الخدمة المناسبة وترتيب طلبك بسهولة.</p>
+      <p class="note">تفاصيل الأسعار والحجز النهائي تُؤكَّد مع إدارة الدبل.</p>
     </div>
   </section>
 
-  <section id="contact" class="hidden">
-    <div class="section-head">
-      <h2>تواصل معنا</h2>
-      <button class="back" onclick="goHome()">← الرئيسية</button>
-    </div>
-    <div class="panel">
-      <h3>الدبل للخدمات</h3>
-      <p>للاستفسار عن الخدمات والحجوزات، تواصل معنا عبر واتساب.</p>
-      <p id="contactStatus">رقم التواصل سيُضاف عند تجهيز بيانات الشركة.</p>
-      <button class="primary" onclick="contactUs()">التواصل عبر واتساب</button>
+  <section id="servicesPage" class="hidden">
+    <button class="secondary back" onclick="goHome()">→ الرجوع للرئيسية</button>
+    <h2 id="sectionTitle">الخدمات</h2>
+    <div id="servicesList"></div>
+    <p id="emptyMessage" class="note hidden">لم تظهر الخدمات من قاعدة البيانات. تحقق من إعدادات الاتصال والصلاحيات.</p>
+  </section>
+
+  <section id="bookingPage" class="panel hidden">
+    <button class="secondary back" onclick="goServices()">→ الرجوع للخدمات</button>
+    <h2>طلب خدمة</h2>
+    <p id="chosenService"></p>
+
+    <form id="bookingForm">
+      <label for="customerName">الاسم</label>
+      <input id="customerName" required placeholder="اكتب اسمك">
+
+      <label for="customerPhone">رقم الهاتف</label>
+      <input id="customerPhone" required type="tel" placeholder="رقم التواصل">
+
+      <label for="quantity">الكمية أو عدد الأشخاص</label>
+      <input id="quantity" type="number" min="1" value="1" required>
+
+      <label for="customerAddress">المنطقة أو العنوان</label>
+      <input id="customerAddress" placeholder="اكتب المنطقة">
+
+      <label for="details">تفاصيل إضافية</label>
+      <textarea id="details" placeholder="موعد الخدمة أو أي تفاصيل أخرى"></textarea>
+
+      <div class="actions">
+        <button type="submit">تجهيز طلب الحجز</button>
+      </div>
+    </form>
+
+    <div id="requestResult" class="panel hidden">
+      <h3>تفاصيل طلبك</h3>
+      <pre id="requestText" style="white-space:pre-wrap;line-height:1.8;font-family:Arial"></pre>
+      <button onclick="copyRequest()">نسخ الطلب</button>
+      <button class="secondary" onclick="sendWhatsApp()">الإرسال عبر واتساب</button>
+      <p class="note">الطلب المجهز ليس حجزًا مؤكدًا. يُرجى التواصل مع الإدارة لتأكيد التفاصيل.</p>
     </div>
   </section>
+
+  <div id="connectionStatus" class="status" style="margin-top:20px">
+    جارٍ تحميل الخدمات...
+  </div>
 </main>
 
-<nav class="nav">
-  <button class="active" onclick="goHome()"><span>⌂</span>الرئيسية</button>
-  <button onclick="openSection('events')"><span>♕</span>المناسبات</button>
-  <button onclick="openSection('cleaning')"><span>✦</span>النظافة</button>
-  <button onclick="openAdmin()"><span>⚙</span>الإدارة</button>
-  <button onclick="openContact()"><span>☏</span>التواصل</button>
-</nav>
-
 <footer>
-  <strong>★ الدبل للخدمات ★</strong>
-  <p>الدبل نجم جديد في سماء الخرطوم</p>
-  <p>خدماتك تستحق الاهتمام</p>
+  الدبل للخدمات ©
+  <br>
+  نسعى لتقديم خدمة تناسب احتياجاتكم
 </footer>
 
 <script>
-const DEFAULT_GROUPS = [
-  {id:"g1",name:"الصالات والقاعات",parent:"events"},
-  {id:"g2",name:"السيرفيس والخدمات",parent:"events"},
-  {id:"g3",name:"الطباخون والوجبات",parent:"events"},
-  {id:"g4",name:"الشركات والمؤسسات",parent:"cleaning"},
-  {id:"g5",name:"المنازل والشقق",parent:"cleaning"},
-  {id:"g6",name:"الحدائق",parent:"cleaning"},
-  {id:"g7",name:"خدمات أخرى",parent:"cleaning"}
+const SUPABASE_URL = "https://piqigtgiwpdeyemforxl.supabase.co";
+const SUPABASE_KEY = "sb_publishable_m6sgUDXUgmVzt2g308IKug_dLwTgZ7A";
+const WHATSAPP_NUMBER = "";
+
+const fallbackGroups = [
+  {id:2,name:"الدبل للمناسبات"},
+  {id:3,name:"الدبل للنظافة"}
 ];
 
-const DEFAULT_SERVICES = [
-  {id:"s1",group:"g1",name:"الصالات والقاعات",desc:"اكتشف خيارات القاعات وتجهيزات المناسبات.",image:"https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=700&q=80",price:"حسب الطلب"},
-  {id:"s2",group:"g2",name:"السيرفيس والخدمات",desc:"خدمات تنظيم وتجهيز المناسبات واستقبال الضيوف.",image:"https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80",price:"حسب الطلب"},
-  {id:"s3",group:"g3",name:"الطباخون والوجبات",desc:"خدمات الطبخ وتجهيز الوجبات والضيافة.",image:"https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=700&q=80",price:"حسب الطلب"},
-  {id:"s4",group:"g4",name:"نظافة الشركات والمؤسسات",desc:"خدمات تنظيف للمكاتب والمباني والمنشآت.",image:"https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80",price:"حسب المساحة"},
-  {id:"s5",group:"g5",name:"نظافة المنازل والشقق",desc:"تنظيف وترتيب لتجديد راحة بيتك.",image:"https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=700&q=80",price:"حسب المساحة"},
-  {id:"s6",group:"g6",name:"تنسيق ونظافة الحدائق",desc:"عناية بالحدائق والمساحات الخضراء.",image:"https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=700&q=80",price:"حسب الطلب"},
-  {id:"s7",group:"g7",name:"خدمات نظافة أخرى",desc:"أخبرنا بالخدمة التي تحتاجها.",image:"https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=700&q=80",price:"حسب الطلب"}
+const fallbackServices = [
+  {id:1,name:"فطور المناسبات",group_id:2},
+  {id:2,name:"غداء المناسبات",group_id:2},
+  {id:3,name:"عشاء المناسبات",group_id:2},
+  {id:4,name:"تنظيف المنازل",group_id:3},
+  {id:5,name:"تنظيف الشركات",group_id:3},
+  {id:10,name:"تنظيف المستشفيات",group_id:3},
+  {id:11,name:"تنظيف الحدائق",group_id:3}
 ];
 
-function loadData(key,fallback){
-  try{
-    const saved=localStorage.getItem(key);
-    return saved ? JSON.parse(saved) : fallback.map(x=>({...x}));
-  }catch(e){return fallback.map(x=>({...x}));}
+let groups = [...fallbackGroups];
+let services = [...fallbackServices];
+let currentGroup = 2;
+let currentService = null;
+let lastRequest = "";
+
+async function fetchTable(table) {
+  const response = await fetch(
+    SUPABASE_URL + "/rest/v1/" + table + "?select=*",
+    {
+      headers: {
+        "apikey": SUPABASE_KEY
+      }
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("تعذر تحميل جدول " + table + " (" + response.status + ")");
+  }
+
+  return await response.json();
 }
-let groups=loadData("aldubul_groups_v1",DEFAULT_GROUPS);
-let services=loadData("aldubul_services_v1",DEFAULT_SERVICES);
-let currentParent="events";
 
-function saveData(){
-  try{
-    localStorage.setItem("aldubul_groups_v1",JSON.stringify(groups));
-    localStorage.setItem("aldubul_services_v1",JSON.stringify(services));
-  }catch(e){
-    alert("تعذر حفظ التغييرات في المتصفح.");
+async function loadData() {
+  const status = document.getElementById("connectionStatus");
+
+  try {
+    const result = await Promise.all([
+      fetchTable("groups"),
+      fetchTable("services")
+    ]);
+
+    if (Array.isArray(result[0]) && result[0].length) {
+      groups = result[0];
+    }
+
+    if (Array.isArray(result[1]) && result[1].length) {
+      services = result[1];
+    }
+
+    status.textContent = "تم الاتصال بقاعدة البيانات ومحاولة تحميل البيانات.";
+  } catch (error) {
+    console.log(error);
+    status.textContent =
+      "نعرض الخدمات الأساسية حاليًا. قد تحتاج قاعدة البيانات إلى ضبط صلاحيات القراءة.";
+  }
+
+  renderServices();
+}
+
+function openSection(groupId) {
+  currentGroup = groupId;
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("bookingPage").classList.add("hidden");
+  document.getElementById("servicesPage").classList.remove("hidden");
+
+  const group = groups.find(g => Number(g.id) === Number(groupId));
+  document.getElementById("sectionTitle").textContent =
+    group ? group.name : (groupId === 2 ? "الدبل للمناسبات" : "الدبل للنظافة");
+
+  renderServices();
+  window.scrollTo(0, 0);
+}
+
+function renderServices() {
+  const list = document.getElementById("servicesList");
+  const empty = document.getElementById("emptyMessage");
+
+  list.innerHTML = "";
+
+  const filtered = services.filter(
+    s => Number(s.group_id) === Number(currentGroup)
+  );
+
+  empty.classList.toggle("hidden", filtered.length > 0);
+
+  filtered.forEach(service => {
+    const item = document.createElement("div");
+    item.className = "service";
+
+    const name = document.createElement("strong");
+    name.textContent = service.name;
+
+    const button = document.createElement("button");
+    button.textContent = "اطلب الخدمة";
+    button.onclick = () => openBooking(service);
+
+    item.appendChild(name);
+    item.appendChild(button);
+    list.appendChild(item);
+  });
+}
+
+function openBooking(service) {
+  currentService = service;
+  document.getElementById("servicesPage").classList.add("hidden");
+  document.getElementById("bookingPage").classList.remove("hidden");
+  document.getElementById("chosenService").textContent =
+    "الخدمة المختارة: " + service.name;
+  document.getElementById("requestResult").classList.add("hidden");
+  window.scrollTo(0, 0);
+}
+
+function goHome() {
+  document.getElementById("servicesPage").classList.add("hidden");
+  document.getElementById("bookingPage").classList.add("hidden");
+  document.getElementById("home").classList.remove("hidden");
+  window.scrollTo(0, 0);
+}
+
+function goServices() {
+  document.getElementById("bookingPage").classList.add("hidden");
+  document.getElementById("servicesPage").classList.remove("hidden");
+  window.scrollTo(0, 0);
+}
+
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (!currentService) return;
+
+  lastRequest =
+    "طلب خدمة من الدبل للخدمات\n" +
+    "الخدمة: " + currentService.name + "\n" +
+    "الاسم: " + document.getElementById("customerName").value + "\n" +
+    "الهاتف: " + document.getElementById("customerPhone").value + "\n" +
+    "الكمية أو عدد الأشخاص: " + document.getElementById("quantity").value + "\n" +
+    "العنوان: " + (document.getElementById("customerAddress").value || "لم يحدد") + "\n" +
+    "تفاصيل إضافية: " + (document.getElementById("details").value || "لا توجد");
+
+  document.getElementById("requestText").textContent = lastRequest;
+  document.getElementById("requestResult").classList.remove("hidden");
+  document.getElementById("requestResult").scrollIntoView({behavior:"smooth"});
+});
+
+async function copyRequest() {
+  try {
+    await navigator.clipboard.writeText(lastRequest);
+    alert("تم نسخ الطلب. يمكنك لصقه في رسالة واتساب.");
+  } catch (error) {
+    alert("تعذر النسخ التلقائي. اضغط مطولًا على نص الطلب وانسخه.");
   }
 }
-function showOnly(id){
-  ["home","details","admin","contact"].forEach(x=>
-    document.getElementById(x).classList.toggle("hidden",x!==id)
-  );
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-function goHome(){showOnly("home");}
-function openSection(parent){
-  currentParent=parent;
-  const title=parent==="events"?"الدبل للمناسبات":"الدبل للنظافة";
-  document.getElementById("sectionTitle").textContent=title;
-  document.getElementById("sectionDescription").textContent=
-    parent==="events"?"اختر فرع الخدمة المناسب لمناسبتك.":
-    "اختر خدمة النظافة التي تناسب احتياجك.";
-  renderServices();
-  showOnly("details");
-}
-function renderServices(){
-  const list=document.getElementById("serviceList");
-  list.innerHTML="";
-  const visibleGroups=groups.filter(g=>g.parent===currentParent);
-  let count=0;
-  visibleGroups.forEach(group=>{
-    services.filter(s=>s.group===group.id).forEach(service=>{
-      count++;
-      const card=document.createElement("article");
-      card.className="service";
-      const img=document.createElement("img");
-      img.src=service.image||"";
-      img.alt=service.name;
-      img.loading="lazy";
-      img.onerror=function(){this.style.display="none";};
-      const info=document.createElement("div");
-      info.className="service-info";
-      const h=document.createElement("h3");
-      h.textContent=service.name;
-      const p=document.createElement("p");
-      p.textContent=service.desc||"تواصل معنا لمعرفة التفاصيل.";
-      const price=document.createElement("p");
-      price.textContent="السعر: "+(service.price||"حسب الطلب");
-      const btn=document.createElement("button");
-      btn.className="small-btn";
-      btn.textContent="استفسر عن الخدمة";
-      btn.onclick=contactUs;
-      info.append(h,p,price,btn);
-      card.append(img,info);
-      list.append(card);
-    });
-  });
-  if(!count)list.innerHTML='<div class="empty">لا توجد خدمات هنا حتى الآن. يمكنك إضافتها من قسم الإدارة.</div>';
-}
-function openAdmin(){
-  renderAdmin();
-  refreshGroupSelect();
-  showOnly("admin");
-}
-function refreshGroupSelect(){
-  const select=document.getElementById("newCategory");
-  select.innerHTML="";
-  groups.forEach(g=>{
-    const opt=document.createElement("option");
-    opt.value=g.id;
-    opt.textContent=(g.parent==="events"?"المناسبات: ":"النظافة: ")+g.name;
-    select.append(opt);
-  });
-}
-function addGroup(){
-  const input=document.getElementById("newGroup");
-  const name=input.value.trim();
-  if(!name){alert("اكتب اسم القسم أولاً.");return;}
-  groups.push({id:"g"+Date.now(),name,parent:document.getElementById("newParent").value});
-  saveData();input.value="";refreshGroupSelect();renderAdmin();
-  alert("تمت إضافة القسم على هذا الجهاز.");
-}
-function addService(){
-  const name=document.getElementById("newName").value.trim();
-  const group=document.getElementById("newCategory").value;
-  const desc=document.getElementById("newDesc").value.trim();
-  const image=document.getElementById("newImage").value.trim();
-  const price=document.getElementById("newPrice").value.trim();
-  if(!name||!group){alert("اكتب اسم الخدمة واختر القسم.");return;}
-  if(image && !/^https?:\/\//i.test(image)){alert("رابط الصورة يجب أن يبدأ بـ https:// أو http://");return;}
-  services.push({id:"s"+Date.now(),group,name,desc,image,price:price||"حسب الطلب"});
-  saveData();
-  ["newName","newDesc","newImage","newPrice"].forEach(id=>document.getElementById(id).value="");
-  renderAdmin();
-  alert("تم حفظ الخدمة على هذا الجهاز.");
-}
-function renderAdmin(){
-  const list=document.getElementById("adminList");
-  list.innerHTML="";
-  groups.forEach(g=>{
-    const row=document.createElement("div");
-    row.className="admin-item";
-    const label=document.createElement("span");
-    label.textContent=(g.parent==="events"?"المناسبات / ":"النظافة / ")+g.name;
-    const del=document.createElement("button");
-    del.className="delete";del.textContent="حذف القسم";
-    del.onclick=()=>{
-      if(!confirm("حذف هذا القسم والخدمات التابعة له؟"))return;
-      groups=groups.filter(x=>x.id!==g.id);
-      services=services.filter(x=>x.group!==g.id);
-      saveData();renderAdmin();refreshGroupSelect();
-    };
-    row.append(label,del);list.append(row);
-    services.filter(s=>s.group===g.id).forEach(s=>{
-      const sr=document.createElement("div");
-      sr.className="admin-item";
-      const st=document.createElement("span");
-      st.textContent="　↳ "+s.name;
-      const sd=document.createElement("button");
-      sd.className="delete";sd.textContent="حذف";
-      sd.onclick=()=>{
-        if(!confirm("هل تريد حذف الخدمة؟"))return;
-        services=services.filter(x=>x.id!==s.id);
-        saveData();renderAdmin();
-      };
-      sr.append(st,sd);list.append(sr);
-    });
-  });
-  if(!groups.length)list.innerHTML='<p class="empty">لا توجد أقسام. أضف قسماً جديداً أعلاه.</p>';
-}
-function openContact(){showOnly("contact");}
-function contactUs(){
-  const number="";
-  if(!number){
-    alert("رقم واتساب لم يُضف بعد. سنضيف رقم الشركة بعد تحديده.");
+
+function sendWhatsApp() {
+  if (!WHATSAPP_NUMBER) {
+    alert("رقم واتساب الإدارة لم يُضف بعد. انسخ الطلب وسنضيف الرقم لاحقًا.");
     return;
   }
-  window.open("https://wa.me/"+number,"_blank");
+
+  window.open(
+    "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lastRequest),
+    "_blank"
+  );
 }
+
+loadData();
 </script>
 </body>
 </html>
