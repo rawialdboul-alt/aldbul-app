@@ -1,249 +1,521 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f07828">
 <title>الدبل للخدمات</title>
 <style>
-:root{--orange:#f07828;--ink:#202020;--paper:#fff;--soft:#fff3e9;--muted:#6b6b6b}
+:root{--orange:#f07828;--ink:#202020;--paper:#fff;--soft:#fff3e9;--muted:#777}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,Tahoma,sans-serif;background:#fafafa;color:var(--ink)}
-button,input,textarea{font:inherit}
-button{border:0;border-radius:13px;padding:13px 17px;background:var(--orange);color:#fff;font-weight:700;cursor:pointer}
-button.dark{background:var(--ink)}
+body{margin:0;background:#fafafa;color:var(--ink);font-family:Arial,Tahoma,sans-serif}
+button,input,textarea,select{font:inherit}
+button{border:0;border-radius:12px;padding:12px 16px;background:var(--orange);color:white;font-weight:bold;cursor:pointer}
+button.dark{background:#222}
+button.light{background:#eee;color:#222}
+button.danger{background:#b83232}
+input,textarea,select{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;background:white}
+textarea{min-height:75px}
+label{display:block;font-weight:bold;margin:12px 0 6px}
 .hidden{display:none!important}
-#splash{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;padding:34px 20px 28px;color:#fff;background:linear-gradient(180deg,#182b3b,#274d60 48%,#f07828);position:relative;overflow:hidden}
-#splash:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.08))}
-.splash-content,.splash-bottom{position:relative;z-index:2}
-.brand-mark{width:66px;height:66px;border:2px solid #fff;border-radius:22px;display:grid;place-items:center;margin:0 auto 15px;font-size:34px;color:#fff;background:#f07828}
-#splash h1{font-size:32px;margin:8px 0}
-#splash p{margin:8px 0;line-height:1.8}
-.landscape{position:absolute;bottom:0;left:0;width:100%;height:52%;z-index:1}
-.splash-bottom{width:100%;max-width:380px}
-.splash-bottom button{width:100%;background:#fff;color:#202020;font-size:17px}
-.splash-note{font-size:12px;opacity:.9;margin-top:12px}
-main{max-width:900px;margin:auto;padding:18px 16px 35px}
-.topbar{background:#202020;color:#fff;padding:20px;border-radius:22px;position:relative;overflow:hidden}
-.topbar:after{content:"";position:absolute;width:130px;height:130px;border:22px solid rgba(240,120,40,.2);border-radius:50%;left:-30px;top:-55px}
-.topbar h1{margin:0 0 7px;font-size:25px;position:relative;z-index:1}
-.topbar p{margin:0;color:#ffd2b2;font-size:13px;position:relative;z-index:1}
-.section-heading{margin:25px 2px 14px}
-.section-heading h2{margin:0 0 5px;font-size:22px}
-.section-heading p{margin:0;color:var(--muted);font-size:13px}
-.category-grid{display:grid;grid-template-columns:1fr;gap:15px}
-.category-card{border-radius:22px;padding:20px;text-align:right;min-height:185px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 8px 24px #2020200d;cursor:pointer;border:1px solid #eee}
-.events{background:linear-gradient(135deg,#fff1e7,#fff 75%)}
-.cleaning{background:linear-gradient(135deg,#f0f1f2,#fff 75%)}
-.card-top{display:flex;align-items:center;justify-content:space-between}
-.category-icon{width:58px;height:58px;border-radius:18px;background:var(--orange);display:grid;place-items:center;font-size:30px}
-.cleaning .category-icon{background:#252525}
-.pill{font-size:11px;background:#ffffffc9;border-radius:30px;padding:7px 11px;color:#555}
-.category-card h3{font-size:23px;margin:15px 0 6px}
-.category-card p{font-size:13px;color:#656565;margin:0;line-height:1.7}
-.card-link{color:#d65d18;font-weight:bold;font-size:14px;margin-top:14px}
-.cleaning .card-link{color:#222}
-.panel{background:#fff;border:1px solid #eee;border-radius:18px;padding:17px;margin-top:18px}
-.status{font-size:12px;color:#666;line-height:1.7}
-.service{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;padding:14px;border:1px solid #eee;border-radius:14px;margin:10px 0}
-.service strong{font-size:15px}
-.service button{font-size:13px;padding:10px 12px;white-space:nowrap}
-label{display:block;font-weight:bold;margin:13px 0 6px;font-size:14px}
-input,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:11px;background:#fff}
-textarea{min-height:85px}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
-.note{font-size:12px;color:#777;line-height:1.8}
-footer{text-align:center;padding:25px 10px;color:#777;font-size:12px}
-@media(min-width:620px){.category-grid{grid-template-columns:1fr 1fr}.category-card{min-height:230px}main{padding-top:25px}}
+main{max-width:950px;margin:auto;padding:16px}
+header{background:#202020;color:white;border-radius:20px;padding:20px;margin-bottom:18px}
+header h1{margin:0 0 7px}
+header p{margin:0;color:#ffd0ae}
+.panel{background:white;border:1px solid #eee;border-radius:17px;padding:16px;margin:14px 0}
+.grid{display:grid;grid-template-columns:1fr;gap:13px}
+.category{background:linear-gradient(135deg,#fff0e4,#fff);border:1px solid #eee;border-radius:18px;padding:22px;cursor:pointer;min-height:145px}
+.category:nth-child(2){background:linear-gradient(135deg,#eee,#fff)}
+.category h2{margin:10px 0}
+.service{background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;margin:10px 0}
+.service-line{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.service img{width:100%;max-height:190px;object-fit:cover;border-radius:12px;margin-top:10px}
+.price{color:#d65d18;font-weight:bold;margin:8px 0}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.muted{color:var(--muted);font-size:13px;line-height:1.7}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.row>*{flex:1}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{flex:1}
+#splash{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;padding:45px 20px;background:linear-gradient(160deg,#172c3c,#31566a 55%,#f07828);color:white}
+.logo{font-size:42px;background:#f07828;border:2px solid white;border-radius:20px;width:75px;height:75px;display:grid;place-items:center;margin:auto}
+#splash h1{font-size:32px}
+#splash button{background:white;color:#222;width:min(100%,360px);font-size:17px}
+#loginBox{max-width:430px;margin:30px auto}
+#adminPanel{border-top:5px solid var(--orange)}
+.service-admin{border:1px solid #eee;border-radius:13px;padding:12px;margin:10px 0}
+footer{text-align:center;padding:25px;color:#888;font-size:12px}
+@media(min-width:650px){.grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
 <section id="splash">
-<svg class="landscape" viewBox="0 0 900 500" preserveAspectRatio="xMidYMax slice">
-<defs><linearGradient id="river" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8bd0d5"/><stop offset="1" stop-color="#267e91"/></linearGradient></defs>
-<path d="M0 270 L900 250 L900 500 L0 500Z" fill="#172d36"/>
-<path d="M0 350 Q180 285 360 350 T720 340 T900 350 L900 500 L0 500Z" fill="url(#river)"/>
-<path d="M0 395 Q180 345 360 395 T720 385 T900 395" fill="none" stroke="#d8f4ed" stroke-width="4" opacity=".55"/>
-<g fill="#17242a">
-<path d="M25 300V205H95V300ZM110 300V165H165V300ZM180 300V220H250V300ZM650 300V185H710V300ZM725 300V145H790V300ZM805 300V205H880V300Z"/>
-<path d="M120 165L137 135L154 165ZM742 145L757 110L774 145Z"/>
-<path d="M280 300V235H330V300ZM340 300V195H395V300ZM405 300V225H460V300ZM475 300V175H530V300ZM540 300V220H620V300Z"/>
-</g>
-<g fill="#f7b46c" opacity=".85">
-<path d="M38 220h10v12H38zm25 0h10v12H63zm25 0h10v12H88zM125 180h9v12h-9zm18 0h9v12h-9zm-18 24h9v12h-9zm18 0h9v12h-9zM665 205h10v12h-10zm22 0h10v12h-10zm62-40h9v12h-9zm20 0h9v12h-9zM355 215h10v12h-10zm22 0h10v12h-10zm100-20h10v12h-10zm22 0h10v12h-10z"/>
-</g>
-<path d="M0 325 Q110 300 220 325 T440 325 T660 325 T900 325" fill="none" stroke="#f5c58e" stroke-width="5" opacity=".7"/>
-</svg>
-<div class="splash-content">
-<div class="brand-mark">✦</div>
-<h1>الدبل للخدمات</h1>
-<p>نجم جديد في سماء السودان 🇸🇩</p>
-<p>خدمات المناسبات والنظافة في مكان واحد</p>
-</div>
-<div class="splash-bottom">
-<button onclick="enterApp()">دخول إلى التطبيق</button>
-<div class="splash-note">أهلاً بكم في الدبل للخدمات</div>
-</div>
+  <div>
+    <div class="logo">✦</div>
+    <h1>الدبل للخدمات</h1>
+    <p>نجم جديد في سماء السودان 🇸🇩</p>
+    <p>خدمات المناسبات والنظافة في مكان واحد</p>
+  </div>
+  <button onclick="enterApp()">دخول إلى التطبيق</button>
 </section>
 
 <main id="app" class="hidden">
-<header class="topbar">
-<h1>الدبل للخدمات</h1>
-<p>نجم جديد في سماء السودان 🇸🇩</p>
+<header>
+  <h1>الدبل للخدمات</h1>
+  <p>نجم جديد في سماء السودان 🇸🇩</p>
+  <div class="actions">
+    <button onclick="callOffice()">اتصال بالإدارة</button>
+    <button onclick="whatsappOffice()">واتساب</button>
+    <button class="light" onclick="showLogin()">دخول الإدارة</button>
+  </div>
 </header>
 
 <section id="home">
-<div class="section-heading">
-<h2>اكتشف خدماتنا</h2>
-<p>اختر القسم المناسب لاحتياجك</p>
-</div>
-<div class="category-grid">
-<article class="category-card events" onclick="openSection(2)">
-<div class="card-top"><div class="category-icon">🎉</div><span class="pill">القسم الأول</span></div>
-<div><h3>الدبل للمناسبات</h3><p>فطور وغداء وعشاء وتجهيز المناسبات</p><div class="card-link">استكشف الخدمات ←</div></div>
-</article>
-<article class="category-card cleaning" onclick="openSection(3)">
-<div class="card-top"><div class="category-icon">✨</div><span class="pill">القسم الثاني</span></div>
-<div><h3>الدبل للنظافة</h3><p>تنظيف المنازل والشركات والمستشفيات والحدائق</p><div class="card-link">استكشف الخدمات ←</div></div>
-</article>
-</div>
-<div class="panel"><h3>الدبل.. خدمة تثق بها</h3><p class="note">نسعى لتقديم خدمة تناسب احتياجاتكم. تفاصيل الأسعار والحجز النهائي تؤكدها الإدارة.</p></div>
+  <h2>اكتشف خدماتنا</h2>
+  <p class="muted">اختر القسم المناسب لاحتياجك</p>
+  <div class="grid">
+    <article class="category" onclick="openGroup(2)">
+      <div style="font-size:32px">🎉</div>
+      <h2>الدبل للمناسبات</h2>
+      <p class="muted">فطور وغداء وعشاء وتجهيز المناسبات</p>
+      <b>استكشف الخدمات ←</b>
+    </article>
+    <article class="category" onclick="openGroup(3)">
+      <div style="font-size:32px">✨</div>
+      <h2>الدبل للنظافة</h2>
+      <p class="muted">تنظيف المنازل والشركات والمستشفيات والحدائق</p>
+      <b>استكشف الخدمات ←</b>
+    </article>
+  </div>
 </section>
 
 <section id="servicesPage" class="hidden">
-<button class="dark" onclick="goHome()">→ الرجوع للرئيسية</button>
-<div class="section-heading"><h2 id="sectionTitle">الخدمات</h2><p>اختر الخدمة لإرسال طلبك</p></div>
-<div id="servicesList"></div>
-<p id="emptyMessage" class="note hidden">لم تظهر الخدمات. تحقق من اتصال قاعدة البيانات وصلاحيات القراءة.</p>
+  <button class="dark" onclick="goHome()">الرجوع للرئيسية</button>
+  <h2 id="groupTitle">الخدمات</h2>
+  <div id="servicesList"></div>
 </section>
 
 <section id="bookingPage" class="panel hidden">
-<button class="dark" onclick="goServices()">→ الرجوع للخدمات</button>
-<h2>طلب خدمة</h2><p id="chosenService" class="note"></p>
-<form id="bookingForm">
-<label for="customerName">الاسم</label><input id="customerName" required placeholder="اكتب اسمك">
-<label for="customerPhone">رقم الهاتف</label><input id="customerPhone" required type="tel" placeholder="رقم التواصل">
-<label for="quantity">الكمية أو عدد الأشخاص</label><input id="quantity" type="number" min="1" value="1" required>
-<label for="customerAddress">المنطقة أو العنوان</label><input id="customerAddress" placeholder="اكتب المنطقة">
-<label for="details">تفاصيل إضافية</label><textarea id="details" placeholder="موعد الخدمة أو أي تفاصيل أخرى"></textarea>
-<div class="actions"><button type="submit">تجهيز طلب الحجز</button></div>
-</form>
-<div id="requestResult" class="panel hidden">
-<h3>تفاصيل طلبك</h3><pre id="requestText" style="white-space:pre-wrap;line-height:1.8;font-family:Arial"></pre>
-<div class="actions"><button onclick="copyRequest()">نسخ الطلب</button><button class="dark" onclick="sendWhatsApp()">الإرسال عبر واتساب</button></div>
-<p class="note">الطلب المجهز ليس حجزاً مؤكداً. يرجى التواصل مع الإدارة لتأكيد التفاصيل.</p>
-</div>
+  <button class="dark" onclick="goServices()">رجوع</button>
+  <h2>طلب خدمة</h2>
+  <p id="chosenService" class="muted"></p>
+  <form id="bookingForm">
+    <label>الاسم</label>
+    <input id="customerName" required>
+    <label>رقم الهاتف</label>
+    <input id="customerPhone" type="tel" required>
+    <label>الكمية أو عدد الأشخاص</label>
+    <input id="quantity" type="number" min="1" value="1" required>
+    <label>المنطقة أو العنوان</label>
+    <input id="customerAddress">
+    <label>تفاصيل إضافية</label>
+    <textarea id="details"></textarea>
+    <button type="submit">تجهيز الطلب</button>
+  </form>
+  <div id="requestResult" class="panel hidden">
+    <pre id="requestText" style="white-space:pre-wrap;font-family:Arial"></pre>
+    <div class="actions">
+      <button onclick="copyRequest()">نسخ الطلب</button>
+      <button class="dark" onclick="sendRequest()">إرسال واتساب</button>
+    </div>
+    <p class="muted">هذا طلب مبدئي وليس حجزاً مؤكداً.</p>
+  </div>
 </section>
-<div id="connectionStatus" class="status panel">جارٍ تحميل الخدمات...</div>
+
+<section id="loginBox" class="panel hidden">
+  <button class="light" onclick="hideLogin()">إغلاق</button>
+  <h2>دخول الإدارة</h2>
+  <form id="loginForm">
+    <label>البريد الإلكتروني</label>
+    <input id="loginEmail" type="email" required autocomplete="username">
+    <label>كلمة المرور</label>
+    <input id="loginPassword" type="password" required autocomplete="current-password">
+    <div class="actions">
+      <button type="submit">تسجيل الدخول</button>
+    </div>
+  </form>
+  <p id="loginMessage" class="muted"></p>
+</section>
+
+<section id="adminPanel" class="panel hidden">
+  <div class="row">
+    <div><h2>لوحة الإدارة</h2><p id="userRole" class="muted"></p></div>
+    <button class="danger" onclick="logout()">تسجيل الخروج</button>
+  </div>
+
+  <div id="adminTools" class="hidden">
+    <h3>إدارة الخدمات</h3>
+    <form id="serviceForm">
+      <input type="hidden" id="serviceId">
+      <label>اسم الخدمة</label>
+      <input id="serviceName" required placeholder="مثلاً: فطور">
+      <label>القسم</label>
+      <select id="serviceGroup" required></select>
+      <label>السعر</label>
+      <input id="servicePrice" type="number" min="0" step="0.01" placeholder="السعر">
+      <label>وصف الخدمة</label>
+      <textarea id="serviceDescription"></textarea>
+      <label>صورة الخدمة</label>
+      <input id="serviceImage" type="file" accept="image/*">
+      <label>ترتيب العرض</label>
+      <input id="serviceOrder" type="number" value="0">
+      <label class="row">
+        <input id="serviceActive" type="checkbox" checked style="width:auto">
+        الخدمة ظاهرة للزوار
+      </label>
+      <div class="actions">
+        <button type="submit">حفظ الخدمة</button>
+        <button type="button" class="light" onclick="resetServiceForm()">إلغاء</button>
+      </div>
+    </form>
+    <hr>
+    <h3>الخدمات الحالية</h3>
+    <div id="adminServices"></div>
+  </div>
+
+  <div id="accountantMessage" class="hidden panel">
+    <h3>حساب المحاسب</h3>
+    <p class="muted">تم التعرف على حساب المحاسب. ربط السجلات المالية يحتاج تجهيز جدول الحسابات قبل عرض البيانات.</p>
+  </div>
+</section>
+
+<div id="status" class="panel muted">جارٍ الاتصال بقاعدة البيانات...</div>
 </main>
 
-<footer id="footer" class="hidden">الدبل للخدمات ©<br>نجم جديد في سماء السودان</footer>
+<footer id="footer" class="hidden">
+  الدبل للخدمات ©<br>نجم جديد في سماء السودان
+</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const SUPABASE_URL="https://piqigtgiwpdeyemforxl.supabase.co";
-const SUPABASE_KEY="sb_publishable_m6sgUDXUgmVzt2g308IKug_dLwTgZ7A";
-const WHATSAPP_NUMBER="";
+const SUPABASE_URL = "https://piqigtgiwpdeyemforxl.supabase.co";
+const SUPABASE_KEY = "sb_publishable_m6sgUDXUgmVzt2g308IKug_dLwTgZ7A";
+const PHONE = "249125497783";
+const BUCKET = "aldbul-images";
 
-const fallbackServices=[
-{id:1,name:"فطور المناسبات",group_id:2},
-{id:2,name:"غداء المناسبات",group_id:2},
-{id:3,name:"عشاء المناسبات",group_id:2},
-{id:4,name:"تنظيف المنازل",group_id:3},
-{id:5,name:"تنظيف الشركات",group_id:3},
-{id:10,name:"تنظيف المستشفيات",group_id:3},
-{id:11,name:"تنظيف الحدائق",group_id:3}
-];
-let groups=[{id:2,name:"الدبل للمناسبات"},{id:3,name:"الدبل للنظافة"}];
-let services=[...fallbackServices],currentGroup=2,currentService=null,lastRequest="";
+const db = window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+let groups = [];
+let services = [];
+let currentGroup = 2;
+let currentService = null;
+let requestText = "";
+let currentRole = null;
+
+const $ = id => document.getElementById(id);
 
 function enterApp(){
-document.getElementById("splash").classList.add("hidden");
-document.getElementById("app").classList.remove("hidden");
-document.getElementById("footer").classList.remove("hidden");
-window.scrollTo(0,0);
+  $("splash").classList.add("hidden");
+  $("app").classList.remove("hidden");
+  $("footer").classList.remove("hidden");
+  window.scrollTo(0,0);
 }
-async function fetchTable(table){
-const r=await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=*`,{headers:{apikey:SUPABASE_KEY}});
-if(!r.ok)throw new Error(`تعذر تحميل ${table}: ${r.status}`);
-return r.json();
+function callOffice(){
+  location.href = "tel:+249125497783";
 }
-async function loadData(){
-const status=document.getElementById("connectionStatus");
-try{
-const [g,s]=await Promise.all([fetchTable("groups"),fetchTable("services")]);
-if(Array.isArray(g)&&g.length)groups=g;
-if(Array.isArray(s)&&s.length)services=s;
-status.textContent="تم الاتصال بقاعدة البيانات وتحميل الخدمات.";
-}catch(e){
-console.error(e);
-status.textContent="نعرض الخدمات الأساسية حالياً. قد تحتاج صلاحيات القراءة إلى مراجعة.";
+function whatsappOffice(){
+  window.open("https://wa.me/"+PHONE,"_blank");
 }
-renderServices();
+function showLogin(){
+  $("loginBox").classList.remove("hidden");
+  $("loginMessage").textContent = "";
+  $("loginBox").scrollIntoView({behavior:"smooth"});
 }
-function openSection(id){
-currentGroup=id;
-document.getElementById("home").classList.add("hidden");
-document.getElementById("bookingPage").classList.add("hidden");
-document.getElementById("servicesPage").classList.remove("hidden");
-const g=groups.find(x=>Number(x.id)===Number(id));
-document.getElementById("sectionTitle").textContent=g?g.name:(id===2?"الدبل للمناسبات":"الدبل للنظافة");
-renderServices();window.scrollTo(0,0);
+function hideLogin(){
+  $("loginBox").classList.add("hidden");
 }
-function renderServices(){
-const list=document.getElementById("servicesList"),empty=document.getElementById("emptyMessage");
-list.innerHTML="";
-const filtered=services.filter(s=>Number(s.group_id)===Number(currentGroup));
-empty.classList.toggle("hidden",filtered.length>0);
-filtered.forEach(s=>{
-const row=document.createElement("div");row.className="service";
-const name=document.createElement("strong");name.textContent=s.name;
-const btn=document.createElement("button");btn.textContent="اطلب الخدمة";btn.onclick=()=>openBooking(s);
-row.append(name,btn);list.appendChild(row);
-});
+function setStatus(message){
+  $("status").textContent = message;
 }
-function openBooking(s){
-currentService=s;
-document.getElementById("servicesPage").classList.add("hidden");
-document.getElementById("bookingPage").classList.remove("hidden");
-document.getElementById("chosenService").textContent="الخدمة المختارة: "+s.name;
-document.getElementById("requestResult").classList.add("hidden");
-window.scrollTo(0,0);
+async function loadGroups(){
+  const {data,error} = await db.from("groups").select("*").order("id");
+  if(error) throw error;
+  groups = data || [];
+  $("serviceGroup").innerHTML = "";
+  groups.forEach(g=>{
+    const option = document.createElement("option");
+    option.value = g.id;
+    option.textContent = g.name;
+    $("serviceGroup").appendChild(option);
+  });
+}
+async function loadServices(){
+  const {data,error} = await db.from("services")
+    .select("*")
+    .order("sort_order",{ascending:true});
+  if(error) throw error;
+  services = data || [];
+  renderPublicServices();
+  renderAdminServices();
+}
+function renderPublicServices(){
+  const list = $("servicesList");
+  list.innerHTML = "";
+  const visible = services.filter(s=>
+    Number(s.group_id)===Number(currentGroup) && s.is_active===true
+  );
+  if(!visible.length){
+    list.textContent = "لا توجد خدمات متاحة حالياً.";
+    return;
+  }
+  visible.forEach(s=>{
+    const box = document.createElement("article");
+    box.className = "service";
+    const title = document.createElement("h3");
+    title.textContent = s.name;
+    box.appendChild(title);
+
+    if(s.description){
+      const desc = document.createElement("p");
+      desc.className = "muted";
+      desc.textContent = s.description;
+      box.appendChild(desc);
+    }
+    if(s.price!==null && s.price!==undefined && s.price!==""){
+      const price = document.createElement("p");
+      price.className = "price";
+      price.textContent = "السعر: "+s.price;
+      box.appendChild(price);
+    }
+    const imageUrl = getImageUrl(s.images);
+    if(imageUrl){
+      const img = document.createElement("img");
+      img.src = imageUrl;
+      img.alt = s.name;
+      box.appendChild(img);
+    }
+    const btn = document.createElement("button");
+    btn.textContent = "اطلب الخدمة";
+    btn.onclick = ()=>openBooking(s);
+    box.appendChild(btn);
+    list.appendChild(box);
+  });
+}
+function getImageUrl(value){
+  if(!value) return "";
+  if(Array.isArray(value)) return value[0] || "";
+  if(typeof value==="string"){
+    try{
+      const parsed=JSON.parse(value);
+      if(Array.isArray(parsed)) return parsed[0] || "";
+      if(typeof parsed==="string") return parsed;
+    }catch(e){}
+    return value;
+  }
+  return "";
+}
+function renderAdminServices(){
+  const box = $("adminServices");
+  if(!box) return;
+  box.innerHTML = "";
+  services.forEach(s=>{
+    const item = document.createElement("div");
+    item.className = "service-admin";
+    const title = document.createElement("b");
+    title.textContent = s.name;
+    const info = document.createElement("p");
+    info.className = "muted";
+    const group = groups.find(g=>Number(g.id)===Number(s.group_id));
+    info.textContent = (group?group.name:"")+
+      " | السعر: "+(s.price ?? "غير محدد")+
+      " | "+(s.is_active?"نشطة":"مخفية");
+    const actions = document.createElement("div");
+    actions.className = "actions";
+    const edit = document.createElement("button");
+    edit.textContent = "تعديل";
+    edit.onclick = ()=>editService(s);
+    const del = document.createElement("button");
+    del.className = "danger";
+    del.textContent = "حذف";
+    del.onclick = ()=>deleteService(s.id);
+    actions.append(edit,del);
+    item.append(title,info,actions);
+    box.appendChild(item);
+  });
+}
+function openGroup(id){
+  currentGroup = id;
+  const g = groups.find(x=>Number(x.id)===Number(id));
+  $("groupTitle").textContent = g ? g.name : "الخدمات";
+  $("home").classList.add("hidden");
+  $("servicesPage").classList.remove("hidden");
+  $("bookingPage").classList.add("hidden");
+  renderPublicServices();
+  window.scrollTo(0,0);
 }
 function goHome(){
-document.getElementById("servicesPage").classList.add("hidden");
-document.getElementById("bookingPage").classList.add("hidden");
-document.getElementById("home").classList.remove("hidden");
-window.scrollTo(0,0);
+  $("servicesPage").classList.add("hidden");
+  $("bookingPage").classList.add("hidden");
+  $("home").classList.remove("hidden");
 }
 function goServices(){
-document.getElementById("bookingPage").classList.add("hidden");
-document.getElementById("servicesPage").classList.remove("hidden");
-window.scrollTo(0,0);
+  $("bookingPage").classList.add("hidden");
+  $("servicesPage").classList.remove("hidden");
 }
-document.getElementById("bookingForm").addEventListener("submit",e=>{
-e.preventDefault();if(!currentService)return;
-lastRequest="طلب خدمة من الدبل للخدمات\n"+
-"الخدمة: "+currentService.name+"\n"+
-"الاسم: "+document.getElementById("customerName").value+"\n"+
-"الهاتف: "+document.getElementById("customerPhone").value+"\n"+
-"الكمية أو عدد الأشخاص: "+document.getElementById("quantity").value+"\n"+
-"العنوان: "+(document.getElementById("customerAddress").value||"لم يحدد")+"\n"+
-"تفاصيل إضافية: "+(document.getElementById("details").value||"لا توجد");
-document.getElementById("requestText").textContent=lastRequest;
-document.getElementById("requestResult").classList.remove("hidden");
-document.getElementById("requestResult").scrollIntoView({behavior:"smooth"});
+function openBooking(s){
+  currentService=s;
+  $("chosenService").textContent="الخدمة المختارة: "+s.name;
+  $("servicesPage").classList.add("hidden");
+  $("bookingPage").classList.remove("hidden");
+  $("requestResult").classList.add("hidden");
+}
+$("bookingForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  requestText =
+    "طلب خدمة من الدبل للخدمات\n"+
+    "الخدمة: "+currentService.name+"\n"+
+    "الاسم: "+$("customerName").value+"\n"+
+    "الهاتف: "+$("customerPhone").value+"\n"+
+    "الكمية: "+$("quantity").value+"\n"+
+    "العنوان: "+$("customerAddress").value+"\n"+
+    "التفاصيل: "+$("details").value;
+  $("requestText").textContent=requestText;
+  $("requestResult").classList.remove("hidden");
 });
 async function copyRequest(){
-try{await navigator.clipboard.writeText(lastRequest);alert("تم نسخ الطلب.");}
-catch(e){alert("تعذر النسخ التلقائي. انسخ نص الطلب يدوياً.");}
+  try{
+    await navigator.clipboard.writeText(requestText);
+    alert("تم نسخ الطلب");
+  }catch(e){alert("انسخ نص الطلب يدوياً");}
 }
-function sendWhatsApp(){
-if(!WHATSAPP_NUMBER){alert("رقم واتساب الإدارة لم يضف بعد. انسخ الطلب حالياً.");return;}
-window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(lastRequest),"_blank");
+function sendRequest(){
+  window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(requestText),"_blank");
 }
-loadData();
+
+$("loginForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  $("loginMessage").textContent="جارٍ التحقق من الحساب...";
+  const email=$("loginEmail").value.trim();
+  const password=$("loginPassword").value;
+  const {data,error}=await db.auth.signInWithPassword({email,password});
+  if(error){
+    $("loginMessage").textContent="تعذر تسجيل الدخول: "+error.message;
+    return;
+  }
+  await checkRole(data.user);
+});
+async function checkRole(user){
+  if(!user) return;
+  const {data,error}=await db.from("profiles")
+    .select("id,full_name,role")
+    .eq("id",user.id)
+    .maybeSingle();
+
+  if(error || !data){
+    await db.auth.signOut();
+    $("loginMessage").textContent="الحساب لا يملك ملف صلاحيات في profiles.";
+    return;
+  }
+
+  currentRole=data.role;
+  hideLogin();
+  $("adminPanel").classList.remove("hidden");
+  $("userRole").textContent="مرحباً "+(data.full_name||"")+
+    " | الصلاحية: "+data.role;
+
+  $("adminTools").classList.add("hidden");
+  $("accountantMessage").classList.add("hidden");
+
+  if(data.role==="admin" || data.role==="deputy"){
+    $("adminTools").classList.remove("hidden");
+    await loadGroups();
+    await loadServices();
+  }else if(data.role==="accountant"){
+    $("accountantMessage").classList.remove("hidden");
+  }else{
+    $("userRole").textContent="هذا الحساب لا يملك صلاحية لوحة الإدارة.";
+  }
+  $("adminPanel").scrollIntoView({behavior:"smooth"});
+}
+async function logout(){
+  await db.auth.signOut();
+  currentRole=null;
+  $("adminPanel").classList.add("hidden");
+  $("loginPassword").value="";
+  alert("تم تسجيل الخروج");
+}
+function resetServiceForm(){
+  $("serviceForm").reset();
+  $("serviceId").value="";
+  $("serviceActive").checked=true;
+}
+function editService(s){
+  $("serviceId").value=s.id;
+  $("serviceName").value=s.name||"";
+  $("serviceGroup").value=s.group_id;
+  $("servicePrice").value=s.price??"";
+  $("serviceDescription").value=s.description||"";
+  $("serviceOrder").value=s.sort_order??0;
+  $("serviceActive").checked=!!s.is_active;
+  $("serviceForm").scrollIntoView({behavior:"smooth"});
+}
+async function uploadImage(file){
+  if(!file) return "";
+  const ext=(file.name.split(".").pop()||"jpg").toLowerCase();
+  const path="services/"+Date.now()+"-"+Math.random().toString(36).slice(2)+"."+ext;
+  const {error}=await db.storage.from(BUCKET).upload(path,file,{upsert:false});
+  if(error) throw error;
+  const {data}=db.storage.from(BUCKET).getPublicUrl(path);
+  return data.publicUrl;
+}
+$("serviceForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(currentRole!=="admin" && currentRole!=="deputy"){
+    alert("ليست لديك صلاحية التعديل");
+    return;
+  }
+  try{
+    const id=$("serviceId").value;
+    const file=$("serviceImage").files[0];
+    const old=services.find(s=>String(s.id)===String(id));
+    let image=getImageUrl(old?.images);
+    if(file) image=await uploadImage(file);
+
+    const payload={
+      name:$("serviceName").value.trim(),
+      group_id:Number($("serviceGroup").value),
+      price:$("servicePrice").value===""?null:Number($("servicePrice").value),
+      description:$("serviceDescription").value.trim(),
+      images:image,
+      is_active:$("serviceActive").checked,
+      sort_order:Number($("serviceOrder").value)||0
+    };
+    let result;
+    if(id){
+      result=await db.from("services").update(payload).eq("id",id);
+    }else{
+      result=await db.from("services").insert(payload);
+    }
+    if(result.error) throw result.error;
+    alert("تم حفظ الخدمة");
+    resetServiceForm();
+    await loadServices();
+  }catch(error){
+    alert("لم يتم الحفظ: "+error.message);
+  }
+});
+async function deleteService(id){
+  if(!confirm("هل تريد حذف هذه الخدمة؟")) return;
+  const {error}=await db.from("services").delete().eq("id",id);
+  if(error){alert("تعذر الحذف: "+error.message);return;}
+  alert("تم حذف الخدمة");
+  await loadServices();
+}
+async function start(){
+  try{
+    await loadGroups();
+    await loadServices();
+    setStatus("تم الاتصال بقاعدة البيانات وتحميل الخدمات.");
+  }catch(error){
+    console.error(error);
+    setStatus("تعذر تحميل البيانات: "+error.message);
+  }
+  const {data}=await db.auth.getSession();
+  if(data.session) await checkRole(data.session.user);
+}
+start();
 </script>
 </body>
-</html>
+          </html>
+          
