@@ -800,3 +800,39 @@ $("cartForm").addEventListener("submit",event => {
  if(!cart.length) {
   alert("العربة فارغة");
   return;
+  }
+
+  const total = cart.reduce((sum,item) => sum + item.price * item.qty,0);
+
+  let message = "طلب من الدبل للخدمات\n";
+  message += "الاسم: " + $("cartName").value + "\n";
+  message += "الهاتف: " + $("cartPhone").value + "\n";
+  message += "العنوان: " + $("cartAddress").value + "\n";
+  message += "التفاصيل: " + $("cartDetails").value + "\n";
+  message += "الطلبات:\n";
+
+  cart.forEach(item => {
+    message += item.name + " × " + item.qty + "\n";
+  });
+
+  message += "الإجمالي: " + total + " جنيه سوداني";
+
+  window.open(
+    "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+});
+
+async function initializeApp() {
+  try {
+    setStatus("جارٍ تحميل الخدمات...");
+    await loadGroups();
+    await loadServices();
+    setStatus("تم الاتصال بقاعدة البيانات بنجاح");
+  } catch(error) {
+    console.error(error);
+    setStatus("تعذر الاتصال بقاعدة البيانات: " + error.message);
+  }
+}
+
+window.addEventListener("load", initializeApp);
