@@ -2,164 +2,421 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#102438">
 <title>الدبل للخدمات</title>
 <style>
-:root{--navy:#102438;--navy2:#193b52;--gold:#e7b94f;--green:#075b43;--paper:#fff;--bg:#f3f5f7;--muted:#77818b;--red:#b83232;--shadow:0 12px 35px #10243814}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#202832;font-family:Tahoma,Arial,sans-serif}button,input,textarea,select{font:inherit}button{border:0;border-radius:13px;padding:12px 17px;background:var(--gold);color:var(--navy);font-weight:700;cursor:pointer;transition:.2s}button:active{transform:scale(.97)}button:disabled{opacity:.55;cursor:not-allowed}.dark{background:var(--navy);color:white}.green{background:var(--green);color:white}.light{background:#edf0f3;color:#263747}.danger{background:var(--red);color:white}.hidden{display:none!important}
-#splash{min-height:100svh;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;padding:35px 20px 28px;color:white;background:linear-gradient(160deg,#0b1e30 0%,#163c51 58%,#b88b37 100%);position:relative;overflow:hidden}
-#splash:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 72%,#e7b94f44,transparent 45%),linear-gradient(180deg,transparent 55%,#071827aa);pointer-events:none}
-.splash-art{width:min(100%,520px);height:43vh;min-height:230px;max-height:360px;position:relative;border:1px solid #ffffff40;border-radius:26px;overflow:hidden;background:linear-gradient(180deg,#e9a85c 0%,#f5d59a 35%,#527d83 36%,#16475b 100%);box-shadow:0 20px 55px #0005}
-.sun{position:absolute;width:78px;height:78px;border-radius:50%;background:#ffe5a4;top:14%;left:18%;box-shadow:0 0 50px #ffe5a477}
-.hill{position:absolute;bottom:32%;width:75%;height:35%;background:#5d5948;clip-path:polygon(0 100%,15% 60%,28% 78%,49% 10%,68% 66%,83% 40%,100% 100%);opacity:.85}
-.hill.two{right:-8%;bottom:31%;background:#384b48;transform:scaleX(-1);opacity:.8}
-.nile{position:absolute;bottom:0;left:-5%;width:110%;height:37%;background:linear-gradient(170deg,#5ca3a6,#14546c 65%,#0c344c);clip-path:polygon(0 18%,18% 0,34% 24%,55% 10%,72% 32%,100% 12%,100% 100%,0 100%)}
-.nile:after{content:"";position:absolute;inset:45% 0 auto;height:2px;background:#ffffff55;box-shadow:0 18px #ffffff30,0 38px #ffffff22}
-.flag{position:absolute;top:12%;right:9%;width:78px;height:48px;border:2px solid #fff;border-radius:4px;overflow:hidden;box-shadow:0 5px 15px #0004;transform:rotate(-5deg)}
-.flag i{display:block;height:33.333%}.flag i:nth-child(1){background:#d71920}.flag i:nth-child(2){background:#fff}.flag i:nth-child(3){background:#087a43}
-.flag:after{content:"";position:absolute;left:0;top:0;border-top:24px solid transparent;border-bottom:24px solid transparent;border-left:30px solid #111}
-.splash-copy,.splash-bottom{position:relative;z-index:1}.brand-mark{width:66px;height:66px;border-radius:20px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:36px;font-weight:bold;margin:0 auto 12px;border:2px solid white}
-#splash h1{font-size:30px;margin:8px 0}#splash p{margin:8px 0;color:#fff2d2;line-height:1.8}#splash button{width:min(100%,360px);font-size:17px;padding:15px}
-main{max-width:980px;margin:auto;padding:14px}header{background:linear-gradient(120deg,var(--navy),var(--navy2));color:white;border-radius:22px;padding:19px;margin-bottom:18px;border-bottom:4px solid var(--gold);box-shadow:var(--shadow)}
-header h1{margin:0 0 7px;font-size:25px}header p{margin:0;color:var(--gold)}.top-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.top-actions button{flex:1;min-width:125px}
-.panel,.service,.category{background:white;border:1px solid #e9edf0;border-radius:18px;padding:16px;margin:13px 0;box-shadow:var(--shadow)}
-.grid{display:grid;grid-template-columns:1fr;gap:13px}.category{cursor:pointer;min-height:160px;border-bottom:4px solid var(--gold);transition:.2s}.category:active{transform:scale(.99)}.category .emoji{font-size:34px}.category h2{margin:8px 0}.muted{color:var(--muted);font-size:13px;line-height:1.8}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions button{flex:1}
-.subcats{display:flex;gap:8px;overflow-x:auto;padding:5px 0 12px}.subcats button{white-space:nowrap;background:#fff4d8;color:#59400d;border:1px solid #ead9a8}.subcats button.active{background:var(--navy);color:#fff}
-.service h3{margin:0 0 8px}.service img{width:100%;max-height:220px;object-fit:cover;border-radius:13px;margin-top:10px}.price{color:#986300;font-weight:bold;margin:9px 0}
-label{display:block;font-weight:bold;margin:12px 0 6px}input,textarea,select{width:100%;padding:12px;border:1px solid #dce1e5;border-radius:11px;background:white;color:#202832}textarea{min-height:75px;resize:vertical}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.cart-item{display:flex;align-items:center;gap:8px;justify-content:space-between;border-bottom:1px solid #eee;padding:11px 0}.cart-item button{padding:8px 12px}
-#loginBox{max-width:450px;margin:22px auto}#adminPanel{border-top:5px solid var(--gold)}.admin-card{background:#f8f9fa;border:1px solid #e9edf0;border-radius:14px;padding:13px;margin:10px 0}
-footer{text-align:center;padding:24px;color:#89919a;font-size:12px}
-@media(min-width:650px){.grid{grid-template-columns:1fr 1fr}.splash-art{height:45vh}}
+:root{--navy:#102438;--navy2:#193b52;--gold:#e7b94f;--green:#075b43;--bg:#f3f5f7;--muted:#77818b;--red:#b83232;--shadow:0 10px 28px #10243812}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#202832;font-family:Tahoma,Arial,sans-serif}button,input,textarea,select{font:inherit}button{border:0;border-radius:12px;padding:12px 16px;background:var(--gold);color:var(--navy);font-weight:bold;cursor:pointer}button:disabled{opacity:.55}.dark{background:var(--navy);color:white}.green{background:var(--green);color:white}.light{background:#edf0f3;color:#263747}.danger{background:var(--red);color:white}.hidden{display:none!important}
+main{max-width:980px;margin:auto;padding:14px}header{background:linear-gradient(120deg,var(--navy),var(--navy2));color:white;border-radius:20px;padding:18px;margin-bottom:16px;border-bottom:4px solid var(--gold)}header h1{margin:0 0 6px}header p{margin:0;color:var(--gold)}.actions,.top-actions,.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.actions button,.top-actions button{flex:1}.panel,.service,.category{background:white;border:1px solid #e9edf0;border-radius:16px;padding:15px;margin:12px 0;box-shadow:var(--shadow)}.grid{display:grid;grid-template-columns:1fr;gap:12px}.category{cursor:pointer;min-height:140px;border-bottom:4px solid var(--gold)}.category .emoji{font-size:32px}.category h2{margin:8px 0}.muted{color:var(--muted);font-size:13px;line-height:1.8}.subcats{display:flex;gap:8px;overflow:auto;padding:5px 0 12px}.subcats button{white-space:nowrap;background:#fff4d8;color:#59400d}.subcats button.active{background:var(--navy);color:#fff}.service h3{margin:0 0 8px}.service img,.package img{width:100%;max-height:220px;object-fit:cover;border-radius:12px;margin-top:9px}.price{color:#986300;font-weight:bold}.package{border:1px solid #e8e0cd;border-radius:14px;padding:13px;margin:10px 0;background:#fffdf8}.package label{margin-top:7px}label{display:block;font-weight:bold;margin:11px 0 6px}input,textarea,select{width:100%;padding:11px;border:1px solid #dce1e5;border-radius:10px;background:white;color:#202832}textarea{min-height:70px}input[type=checkbox]{width:auto}.admin-card{background:#f8f9fa;border:1px solid #e9edf0;border-radius:12px;padding:12px;margin:9px 0}.tabs{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.tabs button{background:#edf0f3}.tabs button.active{background:var(--navy);color:#fff}.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{background:#fff;border:1px solid #e5e9ed;border-radius:12px;padding:13px}.stat b{display:block;font-size:23px;color:var(--navy)}footer{text-align:center;padding:22px;color:#89919a;font-size:12px}pre{white-space:pre-wrap;word-break:break-word;font-family:Tahoma,Arial}
+@media(min-width:650px){.grid{grid-template-columns:1fr 1fr}.statgrid{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
-<section id="splash">
- <div class="splash-copy">
-  <div class="brand-mark">✦</div><h1>الدبل للخدمات</h1>
-  <p>نجم جديد في سماء السودان 🇸🇩</p>
-  <p>خدمات المناسبات والنظافة في مكان واحد</p>
- </div>
- <div class="splash-art" aria-label="مشهد فني لنهر النيل والعلم السوداني">
-  <div class="sun"></div><div class="hill"></div><div class="hill two"></div><div class="nile"></div>
-  <div class="flag"><i></i><i></i><i></i></div>
- </div>
- <div class="splash-bottom"><button onclick="enterApp()">الدخول إلى التطبيق　←</button><p class="muted">أهلاً بك في الدبل للخدمات</p></div>
-</section>
-
-<main id="app" class="hidden">
-<header>
- <h1>الدبل للخدمات</h1><p>نجم جديد في سماء السودان 🇸🇩</p>
- <div class="top-actions">
-  <button onclick="callOffice()">اتصال بنا</button>
-  <button class="green" onclick="whatsappOffice()">واتساب الحجز</button>
-  <button class="light" onclick="showLogin()">دخول الإدارة</button>
-  <button class="light" onclick="openCart()">العربة <span id="cartCount">0</span></button>
- </div>
-</header>
-<section id="home">
- <h2>اكتشف خدماتنا</h2><p class="muted">اختر القسم المناسب لاحتياجك</p>
- <div class="grid">
-  <article class="category" onclick="openGroup(2)"><div class="emoji">🎉</div><h2>الدبل للمناسبات</h2><p class="muted">الفطور والغداء والعشاء والجرتق والمناسبات الخاصة</p><b>استكشف الخدمات ←</b></article>
-  <article class="category" onclick="openGroup(3)"><div class="emoji">✨</div><h2>الدبل للنظافة</h2><p class="muted">تنظيف المنازل والشركات والمستشفيات وتوفير العمالة والأدوات</p><b>استكشف الخدمات ←</b></article>
- </div>
-</section>
-<section id="servicesPage" class="hidden">
- <button class="dark" onclick="goHome()">الرئيسية　⌂</button><h2 id="groupTitle">الخدمات</h2>
- <div id="subcategories" class="subcats"></div><div id="servicesList"></div>
-</section>
-<section id="bookingPage" class="panel hidden">
- <button class="dark" onclick="goServices()">رجوع للخدمات　→</button><h2>طلب خدمة</h2><p id="chosenService" class="muted"></p>
- <form id="bookingForm">
-  <label>الاسم</label><input id="customerName" required>
-  <label>رقم الهاتف</label><input id="customerPhone" type="tel" required>
-  <label>الكمية أو عدد الأشخاص</label><input id="quantity" type="number" min="1" value="1" required>
-  <label>سعر الوحدة (جنيه سوداني)</label><input id="unitPrice" type="number" readonly>
-  <p id="totalPreview" class="price"></p>
-  <label>المنطقة أو العنوان</label><input id="customerAddress">
-  <label>تفاصيل إضافية</label><textarea id="details"></textarea>
-  <button type="submit">تجهيز الطلب</button>
- </form>
- <div id="requestResult" class="panel hidden"><pre id="requestText" style="white-space:pre-wrap;font-family:Tahoma,Arial"></pre><div class="actions"><button onclick="copyRequest()">نسخ الطلب</button><button class="green" onclick="sendRequest()">إرسال واتساب</button></div><p class="muted">هذا طلب مبدئي وليس حجزاً مؤكداً.</p></div>
-</section>
-<section id="cartPage" class="panel hidden">
- <button class="dark" onclick="goHome()">متابعة التصفح　←</button><h2>عربة طلبات النظافة</h2><div id="cartItems"></div><p id="cartTotal" class="price"></p>
- <form id="cartForm"><label>الاسم</label><input id="cartName" required><label>رقم الهاتف</label><input id="cartPhone" type="tel" required><label>العنوان</label><input id="cartAddress"><label>تفاصيل إضافية</label><textarea id="cartDetails"></textarea><button type="submit">إرسال طلب العربة عبر واتساب</button></form>
-</section>
-<section id="loginBox" class="panel hidden">
- <button class="light" onclick="hideLogin()">إغلاق</button><h2>دخول الإدارة</h2>
- <form id="loginForm"><label>البريد الإلكتروني</label><input id="loginEmail" type="email" required autocomplete="username"><label>كلمة المرور</label><input id="loginPassword" type="password" required autocomplete="current-password"><div class="actions"><button type="submit">تسجيل الدخول</button></div></form><p id="loginMessage" class="muted"></p>
-</section>
-<section id="adminPanel" class="panel hidden">
- <div class="row"><div><h2>لوحة الإدارة</h2><p id="userRole" class="muted"></p></div><button class="danger" onclick="logout()">تسجيل الخروج</button></div>
- <div id="adminTools" class="hidden">
-  <h3>إضافة أو تعديل خدمة</h3>
-  <form id="serviceForm">
-   <input type="hidden" id="serviceId">
-   <label>اسم الخدمة</label><input id="serviceName" required placeholder="مثلاً: فطور">
-   <label>القسم الرئيسي</label><select id="serviceGroup" required></select>
-   <label>السعر بالجنيه السوداني</label><input id="servicePrice" type="number" min="0" step="0.01">
-   <label>وصف الخدمة</label><textarea id="serviceDescription"></textarea>
-   <label>صورة الخدمة</label><input id="serviceImage" type="file" accept="image/*">
-   <label>ترتيب العرض</label><input id="serviceOrder" type="number" value="0">
-   <label class="row"><input id="serviceActive" type="checkbox" checked style="width:auto"> الخدمة ظاهرة للزوار</label>
-   <div class="actions"><button type="submit">حفظ التغييرات</button><button type="button" class="light" onclick="resetServiceForm()">إلغاء</button></div>
-  </form>
-  <hr><h3>الخدمات الحالية</h3><div id="adminServices"></div>
- </div>
- <div id="accountantMessage" class="hidden admin-card"><h3>حساب المحاسب</h3><p>مرحباً بك. هذا الحساب مخصص لعرض الحسابات عند ربط وحدة الحسابات.</p></div>
-</section>
-<div id="status" class="panel muted">جارٍ الاتصال بالخدمات...</div>
+<main id="app">
+<header><h1>الدبل للخدمات</h1><p>نجم جديد في سماء الخرطوم 🇸🇩</p>
+<div class="top-actions"><button onclick="callOffice()">اتصال بنا</button><button class="green" onclick="whatsappOffice()">واتساب</button><button class="light" onclick="showLogin()">دخول الإدارة</button></div></header>
+<section id="home"><h2>خدماتنا</h2><div class="grid">
+<article class="category" onclick="openGroup(2)"><div class="emoji">🎉</div><h2>الدبل للمناسبات</h2><p class="muted">فطور، غداء، عشاء، جرتق ومناسبات خاصة</p></article>
+<article class="category" onclick="openGroup(3)"><div class="emoji">✨</div><h2>الدبل للنظافة</h2><p class="muted">المنازل والشركات والمستشفيات والحدائق</p></article>
+</div></section>
+<section id="servicesPage" class="hidden"><button class="dark" onclick="goHome()">الرئيسية</button><h2 id="groupTitle">الخدمات</h2><div id="subcategories" class="subcats"></div><div id="servicesList"></div></section>
+<section id="bookingPage" class="panel hidden"><button class="dark" onclick="goServices()">رجوع</button><h2>تفاصيل الطلب</h2><p id="chosenService" class="muted"></p><div id="bookingChoices"></div>
+<form id="bookingForm"><label>الاسم</label><input id="customerName" required><label>رقم الهاتف</label><input id="customerPhone" type="tel" required><label>الكمية</label><input id="quantity" type="number" min="1" value="1" required><label>سعر الوحدة (جنيه سوداني)</label><input id="unitPrice" type="number" readonly><p id="totalPreview" class="price"></p><label>المنطقة أو العنوان</label><input id="customerAddress"><label>تفاصيل إضافية</label><textarea id="details"></textarea><button type="submit">حفظ وتجهيز الطلب</button></form>
+<div id="requestResult" class="panel hidden"><p id="requestNumber" class="price"></p><pre id="requestText"></pre><div class="actions"><button onclick="copyRequest()">نسخ الطلب</button><button class="green" onclick="sendRequest()">إرسال واتساب</button></div><p class="muted">الطلب مبدئي وليس حجزاً مؤكداً حتى تأكيد الإدارة.</p></div></section>
+<section id="loginBox" class="panel hidden"><button class="light" onclick="hideLogin()">إغلاق</button><h2>دخول الإدارة</h2><form id="loginForm"><label>البريد الإلكتروني</label><input id="loginEmail" type="email" required><label>كلمة المرور</label><input id="loginPassword" type="password" required><button type="submit">دخول</button></form><p id="loginMessage" class="muted"></p></section>
+<section id="adminPanel" class="panel hidden"><div class="row"><h2>لوحة الإدارة</h2><button class="danger" onclick="logout()">خروج</button></div><p id="userRole" class="muted"></p>
+<div id="adminTools" class="hidden">
+<div class="tabs"><button onclick="adminTab('stats',this)" class="active">الإحصائيات</button><button onclick="adminTab('servicesAdmin',this)">الخدمات</button><button onclick="adminTab('packagesAdmin',this)">السفر والكوكتيل</button><button onclick="adminTab('ordersAdmin',this)">الطلبات</button></div>
+<div id="stats" class="admin-section"><h3>ملخص النشاط</h3><div class="statgrid"><div class="stat">الطلبات<b id="statOrders">0</b></div><div class="stat">الطلبات الجديدة<b id="statNew">0</b></div><div class="stat">الخدمات<b id="statServices">0</b></div><div class="stat">الزيارات المسجلة<b id="statVisits">غير متاح</b></div></div><p class="muted">عدد التثبيتات لا يمكن قياسه بدقة على جميع المتصفحات.</p></div>
+<div id="servicesAdmin" class="admin-section hidden"><h3>إضافة أو تعديل خدمة</h3><form id="serviceForm"><input type="hidden" id="serviceId"><label>اسم الخدمة</label><input id="serviceName" required><label>القسم</label><select id="serviceGroup" required></select><label>السعر</label><input id="servicePrice" type="number" min="0" step=".01"><label>الوصف</label><textarea id="serviceDescription"></textarea><label>الصورة</label><input id="serviceImage" type="file" accept="image/*"><label>الترتيب</label><input id="serviceOrder" type="number" value="0"><label><input id="serviceActive" type="checkbox" checked> ظاهرة للزوار</label><button type="submit">حفظ الخدمة</button><button type="button" class="light" onclick="resetServiceForm()">إلغاء</button></form><h3>الخدمات الحالية</h3><div id="adminServices"></div></div>
+<div id="packagesAdmin" class="admin-section hidden"><h3>إدارة السفَر والكوكتيل</h3><p class="muted">تُنشأ الباقات لكل من الفطور والغداء والعشاء. كل باقة لها مكونات وسعر وصورة.</p><form id="packageForm"><input type="hidden" id="packageId"><label>الوجبة</label><select id="packageMeal"><option>فطور</option><option>غداء</option><option>عشاء</option></select><label>النوع</label><select id="packageType"><option value="سفرة">السُّفَر</option><option value="كوكتيل">الكوكتيل</option></select><label>اسم السفرة أو الباقة</label><input id="packageName" required><label>المكونات</label><textarea id="packageItems" required placeholder="اكتب مكونات الباقة مفصولة بفواصل"></textarea><label>السعر</label><input id="packagePrice" type="number" min="0" required><label>صورة الباقة</label><input id="packageImage" type="file" accept="image/*"><label><input id="packageActive" type="checkbox" checked> ظاهرة للزوار</label><button type="submit">حفظ الباقة</button><button type="button" class="light" onclick="resetPackageForm()">إلغاء</button></form><div id="adminPackages"></div></div>
+<div id="ordersAdmin" class="admin-section hidden"><h3>الطلبات المحفوظة</h3><button onclick="loadOrders()">تحديث</button><div id="ordersList"></div></div>
+</div><div id="accountantMessage" class="hidden admin-card"><h3>حساب المحاسب</h3><p>عرض الطلبات والحسابات فقط.</p><div id="accountantOrders"></div></div></section>
+<div id="status" class="panel muted">جارٍ الاتصال...</div><footer>الدبل للخدمات ©</footer>
 </main>
-<footer id="footer" class="hidden">الدبل للخدمات ©<br>نجم جديد في سماء السودان</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
- "use strict";
 const SUPABASE_URL="https://piqigtgiwpdeyemforxl.supabase.co";
 const SUPABASE_KEY="sb_publishable_m6sgUDXUgmVzt2g308IKug_dLwTgZ7A";
-const PHONE="249125497783",BUCKET="aldbul-images";
-const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
-let groups=[],services=[],currentGroup=2,currentService=null,currentRole=null,requestText="",cart=[],activeSubcategory="الكل",currentImage="";
+const db=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+
+let currentGroup=2,currentService=null,currentPackage=null,currentUser=null,currentRole=null;
+let services=[],packages=[],orders=[],lastRequest="",officePhone="";
+let selectedPrice=0;
+
 const $=id=>document.getElementById(id);
-const categories={2:["الكل","فطور","غداء","عشاء","الجرتق","مناسبات خاصة","منع التصوير"],3:["الكل","نظافة الشقق","نظافة الحمامات والمنازل","الشركات والمؤسسات","المستشفيات","طلب عمالة","طلب أدوات تنظيف"]};
-const roleNames={admin:"المدير",deputy:"نائب المدير",assistant:"المساعدة",accountant:"المحاسب"};
-function enterApp(){$("splash").classList.add("hidden");$("app").classList.remove("hidden");$("footer").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});}
-function callOffice(){location.href="tel:+"+PHONE}
-function whatsappOffice(){window.open("https://wa.me/"+PHONE,"_blank")}
-function showLogin(){$("loginBox").classList.remove("hidden");$("loginMessage").textContent="";$("loginBox").scrollIntoView({behavior:"smooth"})}
-function hideLogin(){$("loginBox").classList.add("hidden")}
-function setStatus(t){$("status").textContent=t}
-function categoryMatch(s,c){if(c==="الكل")return true;const n=(s.name+" "+(s.description||"")).toLowerCase();const w={"فطور":["فطور"],"غداء":["غداء"],"عشاء":["عشاء"],"الجرتق":["جرتق"],"مناسبات خاصة":["مناسبة خاصة","مناسبات خاصة"],"منع التصوير":["تصوير","منع التصوير"],"نظافة الشقق":["شقق","شقة"],"نظافة الحمامات والمنازل":["حمامات","حمام","منازل","منزل"],"الشركات والمؤسسات":["شركات","شركة","مؤسسات","مؤسسة"],"المستشفيات":["مستشفى","مستشفيات"],"طلب عمالة":["عمالة","عامل","عمال"],"طلب أدوات تنظيف":["أدوات","ادوات","معدات"]};return(w[c]||[c]).some(x=>n.includes(x))}
-async function loadGroups(){const {data,error}=await db.from("groups").select("*").order("id");if(error)throw error;groups=data||[];$("serviceGroup").innerHTML="";groups.forEach(g=>{const o=document.createElement("option");o.value=g.id;o.textContent=g.name;$("serviceGroup").appendChild(o)})}
-async function loadServices(){const {data,error}=await db.from("services").select("*").order("sort_order",{ascending:true});if(error)throw error;services=data||[];renderPublicServices();renderAdminServices()}
-function imageUrl(v){if(!v)return"";if(Array.isArray(v))return v[0]||"";if(typeof v==="string"){try{const p=JSON.parse(v);if(Array.isArray(p))return p[0]||"";if(typeof p==="string")return p}catch(e){}return v}return""}
-function renderSubcategories(){const b=$("subcategories");b.innerHTML="";(categories[currentGroup]||["الكل"]).forEach(c=>{const x=document.createElement("button");x.textContent=c;x.className=activeSubcategory===c?"active":"";x.onclick=()=>{activeSubcategory=c;renderSubcategories();renderPublicServices()};b.appendChild(x)})}
-function renderPublicServices(){const list=$("servicesList");list.innerHTML="";const visible=services.filter(s=>Number(s.group_id)===Number(currentGroup)&&s.is_active===true&&categoryMatch(s,activeSubcategory));if(!visible.length){list.textContent=activeSubcategory==="الكل"?"لا توجد خدمات متاحة حالياً.":"لا توجد خدمة مسجلة في هذا القسم حالياً.";return}visible.forEach(s=>{const box=document.createElement("article");box.className="service";const h=document.createElement("h3");h.textContent=s.name;box.appendChild(h);if(s.description){const p=document.createElement("p");p.className="muted";p.textContent=s.description;box.appendChild(p)}if(s.price!==null&&s.price!==undefined&&s.price!==""){const p=document.createElement("p");p.className="price";p.textContent="سعر الوحدة: "+s.price+" جنيه سوداني";box.appendChild(p)}const url=imageUrl(s.images);if(url){const im=document.createElement("img");im.src=url;im.alt=s.name;im.loading="lazy";box.appendChild(im)}const a=document.createElement("div");a.className="actions";const order=document.createElement("button");order.textContent="اطلب الخدمة";order.onclick=()=>openBooking(s);a.appendChild(order);if(currentGroup===3){const add=document.createElement("button");add.className="dark";add.textContent="أضف للعربة";add.onclick=()=>addToCart(s);a.appendChild(add)}box.appendChild(a);list.appendChild(box)})}
-function renderAdminServices(){const box=$("adminServices");if(!box)return;box.innerHTML="";services.forEach(s=>{const item=document.createElement("div");item.className="admin-card";const h=document.createElement("b");h.textContent=s.name;const p=document.createElement("p");p.className="muted";const g=groups.find(x=>Number(x.id)===Number(s.group_id));p.textContent=(g?g.name:"")+" | السعر: "+(s.price??"غير محدد")+" | "+(s.is_active?"ظاهرة":"مخفية");const a=document.createElement("div");a.className="actions";const e=document.createElement("button");e.textContent="تعديل";e.onclick=()=>editService(s);const d=document.createElement("button");d.className="danger";d.textContent="حذف";d.onclick=()=>deleteService(s.id);a.append(e,d);item.append(h,p,a);box.appendChild(item)})}
-function openGroup(id){currentGroup=id;activeSubcategory="الكل";const g=groups.find(x=>Number(x.id)===Number(id));$("groupTitle").textContent=g?g.name:(id===2?"الدبل للمناسبات":"الدبل للنظافة");$("home").classList.add("hidden");$("servicesPage").classList.remove("hidden");$("bookingPage").classList.add("hidden");$("cartPage").classList.add("hidden");renderSubcategories();renderPublicServices();window.scrollTo({top:0,behavior:"smooth"})}
-function goHome(){$("servicesPage").classList.add("hidden");$("bookingPage").classList.add("hidden");$("cartPage").classList.add("hidden");$("home").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})}
-function goServices(){$("bookingPage").classList.add("hidden");$("servicesPage").classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"})}
-function openBooking(s){currentService=s;$("chosenService").textContent="الخدمة المختارة: "+s.name;$("unitPrice").value=s.price??0;$("quantity").value=1;updateTotal();$("servicesPage").classList.add("hidden");$("cartPage").classList.add("hidden");$("bookingPage").classList.remove("hidden");$("requestResult").classList.add("hidden");window.scrollTo({top:0,behavior:"smooth"})}
-function updateTotal(){const q=Math.max(0,Number($("quantity").value)||0),p=Math.max(0,Number($("unitPrice").value)||0);$("totalPreview").textContent="الإجمالي: "+(q*p).toLocaleString("en-US")+" جنيه سوداني"}
-$("quantity").addEventListener("input",updateTotal);
-$("bookingForm").addEventListener("submit",e=>{e.preventDefault();if(!currentService)return;const q=Number($("quantity").value),p=Number($("unitPrice").value)||0;requestText="طلب خدمة من الدبل للخدمات\nالخدمة: "+currentService.name+"\nالاسم: "+$("customerName").value+"\nالهاتف: "+$("customerPhone").value+"\nالكمية: "+q+"\nسعر الوحدة: "+p+" جنيه سوداني\nالإجمالي: "+(q*p)+" جنيه سوداني\nالعنوان: "+$("customerAddress").value+"\nالتفاصيل: "+$("details").value;$("requestText").textContent=requestText;$("requestResult").classList.remove("hidden")});
-async function copyRequest(){try{await navigator.clipboard.writeText(requestText);alert("تم نسخ الطلب")}catch(e){alert("يرجى نسخ نص الطلب يدوياً")}}
-function sendRequest(){window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(requestText),"_blank")}
-function addToCart(s){const f=cart.find(x=>String(x.id)===String(s.id));if(f)f.qty++;else cart.push({id:s.id,name:s.name,price:Number(s.price)||0,qty:1});updateCartCount();alert("تمت إضافة "+s.name+" إلى العربة")}
-function updateCartCount(){$("cartCount").textContent=cart.reduce((n,x)=>n+x.qty,0)}
-function openCart(){$("home").classList.add("hidden");$("servicesPage").classList.add("hidden");$("bookingPage").classList.add("hidden");$("cartPage").classList.remove("hidden");renderCart();window.scrollTo({top:0,behavior:"smooth"})}
-function renderCart(){const box=$("cartItems");box.innerHTML="";let total=0;if(!cart.length)box.textContent="العربة فارغة. أضف خدمات النظافة أولاً.";cart.forEach((x,i)=>{total+=x.price*x.qty;const r=document.createElement("div");r.className="cart-item";const n=document.createElement("span");n.textContent=x.name+" × "+x.qty;const p=document.createElement("b");p.textContent=(x.price*x.qty).toLocaleString("en-US")+" ج.س";const b=document.createElement("button");b.className="danger";b.textContent="إزالة";b.onclick=()=>{cart.splice(i,1);updateCartCount();renderCart()};r.append(n,p,b);box.appendChild(r)});$("cartTotal").textContent="الإجمالي: "+total.toLocaleString("en-US")+" جنيه سوداني"}
-$("cartForm").addEventListener("submit",e=>{e.preventDefault();if(!cart.length){alert("العربة فارغة");return}let t="طلب عربة من الدبل للخدمات\n";cart.forEach(x=>t+=x.name+" × "+x.qty+" = "+(x.price*x.qty)+" جنيه سوداني\n");t+="الإجمالي: "+cart.reduce((n,x)=>n+x.price*x.qty,0)+" جنيه سوداني\nالاسم: "+$("cartName").value+"\nالهاتف: "+$("cartPhone").value+"\nالعنوان: "+$("cartAddress").value+"\nالتفاصيل: "+$("cartDetails").value;window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(t),"_blank")});
-$("loginForm").addEventListener("submit",async e=>{e.preventDefault();$("loginMessage").textContent="جارٍ التحقق...";const {data,error}=await db.auth.signInWithPassword({email:$("loginEmail").value,password:$("loginPassword").value});if(error){$("loginMessage").textContent="تعذر الدخول: "+error.message;return}await showAdmin(data.user)});
-async function showAdmin(user){const {data,error}=await db.from("profiles").select("full_name,role").eq("id",user.id).maybeSingle();if(error||!data){$("loginMessage").textContent="الحساب غير مربوط بملف صلاحيات في profiles.";await db.auth.signOut();return}currentRole=data.role;$("userRole").textContent=(data.full_name||user.email)+" | "+(roleNames[currentRole]||currentRole);hideLogin();$("adminPanel").classList.remove("hidden");const canManage=["admin","deputy","assistant"].includes(currentRole);$("adminTools").classList.toggle("hidden",!canManage);$("accountantMessage").classList.toggle("hidden",currentRole!=="accountant");$("adminPanel").scrollIntoView({behavior:"smooth"});if(canManage){try{await loadGroups();await loadServices()}catch(err){setStatus("خطأ في تحميل لوحة الإدارة: "+err.message)}}}
-async function logout(){await db.auth.signOut();currentRole=null;$("adminPanel").classList.add("hidden");$("adminTools").classList.add("hidden");$("accountantMessage").classList.add("hidden")}
-function resetServiceForm(){$("serviceForm").reset();$("serviceId").value="";$("serviceOrder").value=0;$("serviceActive").checked=true;currentImage=""}
-function editService(s){$("serviceId").value=s.id;$("serviceName").value=s.name||"";$("serviceGroup").value=s.group_id;$("servicePrice").value=s.price??"";$("serviceDescription").value=s.description||"";$("serviceOrder").value=s.sort_order??0;$("serviceActive").checked=!!s.is_active;$("serviceImage").value="";currentImage=imageUrl(s.images);$("serviceForm").scrollIntoView({behavior:"smooth"})}
-async function uploadImage(file){const ext=(file.name.split(".").pop()||"jpg").toLowerCase();const path="services/"+Date.now()+"-"+Math.random().toString(36).slice(2)+"."+ext;const {error}=await db.storage.from(BUCKET).upload(path,file,{upsert:false,contentType:file.type});if(error)throw error;const {data}=db.storage.from(BUCKET).getPublicUrl(path);return data.publicUrl}
-$("serviceForm").addEventListener("submit",async e=>{e.preventDefault();if(!["admin","deputy","assistant"].includes(currentRole)){alert("ليست لديك صلاحية التعديل");return}const btn=$("serviceForm").querySelector('button[type="submit"]');btn.disabled=true;btn.textContent="جارٍ الحفظ...";try{let img=currentImage;const file=$("serviceImage").files[0];if(file)img=await uploadImage(file);const record={name:$("serviceName").value.trim(),group_id:Number($("serviceGroup").value),price:$("servicePrice").value===""?null:Number($("servicePrice").value),description:$("serviceDescription").value.trim(),sort_order:Number($("serviceOrder").value)||0,is_active:$("serviceActive").checked,images:img?[img]:[]};const id=$("serviceId").value;let result;if(id)result=await db.from("services").update(record).eq("id",id);else result=await db.from("services").insert(record);if(result.error)throw result.error;alert("تم حفظ الخدمة بنجاح");resetServiceForm();await loadServices();setStatus("تم تحديث الخدمات بنجاح")}catch(err){alert("لم يتم الحفظ: "+err.message)}finally{btn.disabled=false;btn.textContent="حفظ التغييرات"}});
-async function deleteService(id){if(!confirm("هل تريد حذف هذه الخدمة؟"))return;const {error}=await db.from("services").delete().eq("id",id);if(error){alert("تعذر الحذف: "+error.message);return}await loadServices();alert("تم حذف الخدمة")}
-async function init(){try{await loadGroups();await loadServices();setStatus("التطبيق متصل وجاهز لاستقبال الطلبات")}catch(e){setStatus("تعذر الاتصال بقاعدة البيانات: "+e.message)}const {data:{session}}=await db.auth.getSession();if(session)await showAdmin(session.user)}
-init();
+const money=n=>Number(n||0).toLocaleString("en-US");
+const statusMsg=t=>$("status").textContent=t;
+
+function show(id){$(id).classList.remove("hidden")}
+function hide(id){$(id).classList.add("hidden")}
+function goHome(){["servicesPage","bookingPage"].forEach(hide);show("home")}
+function goServices(){hide("bookingPage");show("servicesPage")}
+function showLogin(){show("loginBox")}
+function hideLogin(){hide("loginBox")}
+function callOffice(){if(officePhone)location.href="tel:"+officePhone;else alert("رقم الاتصال غير مضاف حالياً")}
+function whatsappOffice(){if(officePhone)window.open("https://wa.me/"+officePhone.replace(/\D/g,""),"_blank");else alert("رقم واتساب غير مضاف حالياً")}
+
+async function loadPublic(){
+ try{
+  const [s,p]=await Promise.all([
+   db.from("services").select("*").eq("is_active",true).order("sort_order"),
+   db.from("meal_packages").select("*").eq("is_active",true).order("created_at")
+  ]);
+  if(s.error)throw s.error;
+  if(p.error)throw p.error;
+  services=s.data||[];
+  packages=p.data||[];
+  statusMsg("التطبيق جاهز لاستقبال الطلبات");
+ }catch(e){console.error(e);statusMsg("تعذر تحميل البيانات. راجع اتصال قاعدة البيانات والصلاحيات.");}
+}
+
+function openGroup(id){
+ currentGroup=id;
+ hide("home");hide("bookingPage");show("servicesPage");
+ $("groupTitle").textContent=id===2?"الدبل للمناسبات":"الدبل للنظافة";
+ renderSubcategories();
+}
+
+function renderSubcategories(){
+ const names=currentGroup===2?["الكل","فطور","غداء","عشاء","الجرتق","مناسبات خاصة"]:["الكل","تنظيف منازل","تنظيف شركات","تنظيف مستشفيات","تنظيف حدائق","خدمات أخرى"];
+ $("subcategories").innerHTML=names.map((n,i)=>`<button class="${i===0?"active":""}" onclick="filterServices('${n}',this)">${n}</button>`).join("");
+ filterServices("الكل");
+}
+
+function filterServices(name,btn){
+ if(btn){
+  document.querySelectorAll(".subcats button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+ }
+ const list=services.filter(s=>Number(s.group_id)===currentGroup);
+ const filtered=name==="الكل"?list:list.filter(s=>(s.name||"").includes(name));
+ let html="";
+ if(currentGroup===2 && ["الكل","فطور","غداء","عشاء"].includes(name)){
+  const meals=name==="الكل"?["فطور","غداء","عشاء"]:[name];
+  meals.forEach(meal=>{
+   html+=`<article class="service"><h3>${meal}</h3><p class="muted">اختر من السفَر أو باقات الكوكتيل</p>
+   <div class="row"><button onclick="showPackages('${meal}','سفرة')">السُّفَر</button><button class="dark" onclick="showPackages('${meal}','كوكتيل')">الكوكتيل</button></div></article>`;
+  });
+ }
+ html+=filtered.map(s=>`<article class="service">
+ <h3>${esc(s.name)}</h3><p>${esc(s.description||"")}</p>
+ <p class="price">${money(s.price)} جنيه</p>
+ ${s.images?`<img src="${esc(s.images)}" alt="">`:""}
+ <button onclick="bookService(${Number(s.id)})">اطلب الخدمة</button></article>`).join("");
+ $("servicesList").innerHTML=html||"<p>لا توجد خدمات متاحة حالياً.</p>";
+}
+
+function showPackages(meal,type){
+ const list=packages.filter(p=>p.meal===meal&&p.type===type);
+ $("servicesList").innerHTML=`<h3>${meal} | ${type}</h3>`+
+ (list.length?list.map(p=>`<article class="package">
+ <h3>${esc(p.name)}</h3><p>${esc(p.items||"")}</p>
+ <p class="price">${money(p.price)} جنيه</p>
+ ${p.image_url?`<img src="${esc(p.image_url)}" alt="">`:""}
+ <button onclick="bookPackage(${Number(p.id)})">اختيار الباقة</button></article>`).join(""):"<p>لا توجد باقات متاحة حالياً.</p>");
+}
+
+function esc(v){
+ return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function bookService(id){
+ currentService=services.find(s=>Number(s.id)===id);
+ currentPackage=null;
+ if(!currentService)return;
+ selectedPrice=Number(currentService.price||0);
+ openBooking(currentService.name);
+}
+
+function bookPackage(id){
+ currentPackage=packages.find(p=>Number(p.id)===id);
+ currentService=null;
+ if(!currentPackage)return;
+ selectedPrice=Number(currentPackage.price||0);
+ openBooking(currentPackage.meal+" - "+currentPackage.type+" - "+currentPackage.name);
+}
+
+function openBooking(name){
+ hide("servicesPage");show("bookingPage");
+ $("chosenService").textContent=name;
+ $("bookingChoices").innerHTML=currentPackage?`<p>${esc(currentPackage.items||"")}</p>`:"";
+ $("unitPrice").value=selectedPrice;
+ $("quantity").value=1;
+ $("totalPreview").textContent="الإجمالي: "+money(selectedPrice)+" جنيه";
+ hide("requestResult");
+}
+
+$("quantity").addEventListener("input",()=>{
+ const q=Math.max(1,Number($("quantity").value)||1);
+ $("totalPreview").textContent="الإجمالي: "+money(q*selectedPrice)+" جنيه";
+});
+
+$("bookingForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ const quantity=Math.max(1,Number($("quantity").value)||1);
+ const total=quantity*selectedPrice;
+ const serviceName=currentPackage?
+ `${currentPackage.meal} - ${currentPackage.type} - ${currentPackage.name}`:currentService?.name;
+ const payload={
+  customer_name:$("customerName").value.trim(),
+  customer_phone:$("customerPhone").value.trim(),
+  address:$("customerAddress").value.trim(),
+  service_name:serviceName,
+  package_id:currentPackage?.id||null,
+  quantity,
+  unit_price:selectedPrice,
+  total,
+  details:$("details").value.trim(),
+  status:"new"
+ };
+ try{
+  statusMsg("جارٍ حفظ الطلب...");
+  const {data,error}=await db.from("orders").insert(payload).select("order_no").single();
+  if(error)throw error;
+  const no=String(data.order_no).padStart(3,"0");
+  lastRequest=`طلب رقم: ${no}
+الاسم: ${payload.customer_name}
+الهاتف: ${payload.customer_phone}
+الخدمة: ${serviceName}
+الكمية: ${quantity}
+سعر الوحدة: ${money(selectedPrice)} جنيه
+الإجمالي: ${money(total)} جنيه
+العنوان: ${payload.address}
+التفاصيل: ${payload.details}
+الطلب مبدئي حتى تأكيد الإدارة.`;
+  $("requestNumber").textContent="تم حفظ الطلب رقم "+no;
+  $("requestText").textContent=lastRequest;
+  show("requestResult");
+  statusMsg("تم حفظ الطلب بنجاح");
+ }catch(err){
+  console.error(err);
+  statusMsg("لم يُحفظ الطلب: "+(err.message||"تحقق من إعدادات قاعدة البيانات"));
+  alert("تعذر حفظ الطلب. راجع اتصال قاعدة البيانات والصلاحيات.");
+ }
+});
+
+function copyRequest(){
+ if(navigator.clipboard)navigator.clipboard.writeText(lastRequest);
+ else alert("انسخ نص الطلب يدوياً");
+}
+
+function sendRequest(){
+ const phone=officePhone.replace(/\D/g,"");
+ if(!phone){alert("أضف رقم واتساب الشركة في إعدادات الكود أولاً.");return;}
+ window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(lastRequest),"_blank");
+}
+
+/* تسجيل دخول الإدارة */
+$("loginForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ $("loginMessage").textContent="جارٍ تسجيل الدخول...";
+ const {data,error}=await db.auth.signInWithPassword({
+  email:$("loginEmail").value.trim(),
+  password:$("loginPassword").value
+ });
+ if(error){$("loginMessage").textContent="بيانات الدخول غير صحيحة.";return;}
+ currentUser=data.user;
+ await loadProfile();
+});
+
+async function loadProfile(){
+ const {data,error}=await db.from("profiles").select("full_name,role").eq("id",currentUser.id).single();
+ if(error||!data){alert("لم يتم العثور على صلاحية لهذا الحساب.");await logout();return;}
+ currentRole=data.role;
+ $("userRole").textContent="مرحباً "+(data.full_name||"") +" | "+currentRole;
+ hide("loginBox");show("adminPanel");
+ const managers=["admin","deputy","assistant"];
+ if(managers.includes(currentRole)){
+  show("adminTools");hide("accountantMessage");
+  await loadAdminData();
+ }else if(currentRole==="accountant"){
+  hide("adminTools");show("accountantMessage");
+  await loadOrders();
+ }else{
+  alert("ليس لديك صلاحية دخول الإدارة.");
+  await logout();
+ }
+}
+
+async function logout(){
+ await db.auth.signOut();
+ currentUser=null;currentRole=null;
+ hide("adminPanel");show("home");
+}
+
+function adminTab(id,btn){
+ document.querySelectorAll(".admin-section").forEach(x=>x.classList.add("hidden"));
+ show(id);
+ document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
+ btn.classList.add("active");
+ if(id==="ordersAdmin")loadOrders();
+}
+
+async function loadAdminData(){
+ await Promise.all([loadAdminServices(),loadAdminPackages(),loadOrders()]);
+ $("statServices").textContent=services.length;
+ $("statOrders").textContent=orders.length;
+ $("statNew").textContent=orders.filter(o=>o.status==="new").length;
+ $("statVisits").textContent="غير متاح";
+}
+
+async function loadAdminServices(){
+ const {data,error}=await db.from("services").select("*").order("sort_order");
+ if(error){console.error(error);return;}
+ const all=data||[];
+ $("adminServices").innerHTML=all.map(s=>`<div class="admin-card">
+ <b>${esc(s.name)}</b> | ${money(s.price)} جنيه
+ <p class="muted">القسم: ${s.group_id} | ${s.is_active?"ظاهرة":"مخفية"}</p>
+ <div class="row"><button onclick="editService(${Number(s.id)})">تعديل</button><button class="danger" onclick="toggleService(${Number(s.id)},${!s.is_active})">${s.is_active?"إخفاء":"إظهار"}</button></div></div>`).join("")||"لا توجد خدمات";
+ $("serviceGroup").innerHTML='<option value="2">الدبل للمناسبات</option><option value="3">الدبل للنظافة</option>';
+}
+
+async function saveImage(file){
+ if(!file)return null;
+ const ext=(file.name.split(".").pop()||"jpg").toLowerCase();
+ const path=Date.now()+"-"+Math.random().toString(36).slice(2)+"."+ext;
+ const {error}=await db.storage.from("aldbul-images").upload(path,file,{upsert:false});
+ if(error)throw error;
+ const {data}=db.storage.from("aldbul-images").getPublicUrl(path);
+ return data.publicUrl;
+}
+
+$("serviceForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ try{
+  const id=$("serviceId").value;
+  const file=$("serviceImage").files[0];
+  const old=services.find(s=>String(s.id)===id);
+  const image=file?await saveImage(file):(old?.images||null);
+  const payload={
+   name:$("serviceName").value.trim(),
+   group_id:Number($("serviceGroup").value),
+   price:Number($("servicePrice").value||0),
+   description:$("serviceDescription").value.trim(),
+   sort_order:Number($("serviceOrder").value||0),
+   is_active:$("serviceActive").checked,
+   images:image
+  };
+  const result=id?await db.from("services").update(payload).eq("id",id):await db.from("services").insert(payload);
+  if(result.error)throw result.error;
+  resetServiceForm();await loadPublic();await loadAdminServices();
+  alert("تم حفظ الخدمة");
+ }catch(err){alert("تعذر الحفظ: "+err.message);}
+});
+
+function editService(id){
+ const s=services.find(x=>Number(x.id)===id);
+ if(!s)return;
+ $("serviceId").value=s.id;$("serviceName").value=s.name;
+ $("serviceGroup").value=s.group_id;$("servicePrice").value=s.price||0;
+ $("serviceDescription").value=s.description||"";
+ $("serviceOrder").value=s.sort_order||0;$("serviceActive").checked=s.is_active;
+ $("serviceImage").value="";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function resetServiceForm(){
+ $("serviceForm").reset();$("serviceId").value="";
+ $("serviceActive").checked=true;
+}
+
+async function toggleService(id,active){
+ const {error}=await db.from("services").update({is_active:active}).eq("id",id);
+ if(error){alert(error.message);return;}
+ await loadPublic();await loadAdminServices();
+}
+
+/* إدارة باقات السفر والكوكتيل */
+async function loadAdminPackages(){
+ const {data,error}=await db.from("meal_packages").select("*").order("created_at",{ascending:false});
+ if(error){console.error(error);return;}
+ $("adminPackages").innerHTML=(data||[]).map(p=>`<div class="admin-card">
+ <b>${esc(p.meal)} | ${esc(p.type)} | ${esc(p.name)}</b>
+ <p>${esc(p.items||"")}</p><p class="price">${money(p.price)} جنيه</p>
+ <div class="row"><button onclick="editPackage(${Number(p.id)})">تعديل</button><button class="danger" onclick="togglePackage(${Number(p.id)},${!p.is_active})">${p.is_active?"إخفاء":"إظهار"}</button></div></div>`).join("")||"لا توجد باقات";
+}
+
+$("packageForm").addEventListener("submit",async e=>{
+ e.preventDefault();
+ try{
+  const id=$("packageId").value;
+  const {data:oldData}=id?await db.from("meal_packages").select("image_url").eq("id",id).single():{data:null};
+  const file=$("packageImage").files[0];
+  const image=file?await saveImage(file):(oldData?.image_url||null);
+  const payload={
+   meal:$("packageMeal").value,
+   type:$("packageType").value,
+   name:$("packageName").value.trim(),
+   items:$("packageItems").value.trim(),
+   price:Number($("packagePrice").value),
+   image_url:image,
+   is_active:$("packageActive").checked
+  };
+  const result=id?await db.from("meal_packages").update(payload).eq("id",id):await db.from("meal_packages").insert(payload);
+  if(result.error)throw result.error;
+  resetPackageForm();await loadPublic();await loadAdminPackages();
+  alert("تم حفظ الباقة");
+ }catch(err){alert("تعذر حفظ الباقة: "+err.message);}
+});
+
+async function editPackage(id){
+ const {data,error}=await db.from("meal_packages").select("*").eq("id",id).single();
+ if(error){alert(error.message);return;}
+ $("packageId").value=data.id;$("packageMeal").value=data.meal;
+ $("packageType").value=data.type;$("packageName").value=data.name;
+ $("packageItems").value=data.items||"";$("packagePrice").value=data.price;
+ $("packageActive").checked=data.is_active;$("packageImage").value="";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function resetPackageForm(){
+ $("packageForm").reset();$("packageId").value="";
+ $("packageActive").checked=true;
+}
+
+async function togglePackage(id,active){
+ const {error}=await db.from("meal_packages").update({is_active:active}).eq("id",id);
+ if(error){alert(error.message);return;}
+ await loadPublic();await loadAdminPackages();
+}
+
+/* الطلبات */
+async function loadOrders(){
+ const {data,error}=await db.from("orders").select("*").order("created_at",{ascending:false});
+ if(error){console.error(error);return;}
+ orders=data||[];
+ $("statOrders").textContent=orders.length;
+ $("statNew").textContent=orders.filter(o=>o.status==="new").length;
+ const html=orders.map(o=>`<div class="admin-card">
+ <b>طلب رقم ${String(o.order_no).padStart(3,"0")}</b>
+ <p>الاسم: ${esc(o.customer_name)} | الهاتف: ${esc(o.customer_phone)}</p>
+ <p>الخدمة: ${esc(o.service_name)} | الكمية: ${o.quantity}</p>
+ <p class="price">الإجمالي: ${money(o.total)} جنيه</p>
+ <p>الحالة: ${esc(o.status)}</p>
+ ${["admin","deputy","assistant"].includes(currentRole)?`<select onchange="changeOrderStatus(${o.id},this.value)">
+ <option value="new" ${o.status==="new"?"selected":""}>جديد</option>
+ <option value="processing" ${o.status==="processing"?"selected":""}>قيد التنفيذ</option>
+ <option value="completed" ${o.status==="completed"?"selected":""}>مكتمل</option>
+ <option value="cancelled" ${o.status==="cancelled"?"selected":""}>ملغي</option>
+ </select>`:""}
+ </div>`).join("")||"لا توجد طلبات حتى الآن";
+ $("ordersList").innerHTML=html;
+ $("accountantOrders").innerHTML=html;
+}
+
+async function changeOrderStatus(id,status){
+ const {error}=await db.from("orders").update({status}).eq("id",id);
+ if(error){alert("تعذر تحديث الحالة: "+error.message);return;}
+ await loadOrders();
+}
+
+db.auth.onAuthStateChange((event,session)=>{
+ if(event==="SIGNED_OUT"){hide("adminPanel");show("home");}
+});
+
+loadPublic();
 </script>
 </body>
 </html>
