@@ -1,92 +1,533 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#071f38">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102438">
+  <meta name="description" content="الدبل للخدمات، الدبل نجم جديد في سماء السودان">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>الدبل للخدمات</title>
 
-<link rel="manifest" href="./manifest.webmanifest">
-<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
-<link rel="apple-touch-icon" href="./icons/icon-192.png">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="الدبل للخدمات">
-<title>الدبل للخدمات</title>
-<style>
-:root{--navy:#071f38;--navy2:#102e4d;--gold:#f2bd4e;--gold2:#ffe08a;--ink:#071321;--muted:#b9c9d8;--panel:#102b49}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0,#173b5e 0,var(--navy) 55%);color:#fff;font-family:Tahoma,Arial,sans-serif;min-height:100vh}
-button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
-.top{position:sticky;top:0;z-index:5;background:#061a30ed;border-bottom:2px solid var(--gold);padding:10px 4%;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 6px 22px #0006}
-.brand{display:flex;align-items:center;gap:12px}.mark{width:58px;height:58px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:36px;font-weight:bold;text-shadow:0 0 12px #ffce55;position:relative}.mark:after{content:"";position:absolute;width:72px;height:25px;border:2px solid var(--gold);border-left-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-25deg)}.brand h1{margin:0;color:var(--gold2);font-size:clamp(19px,3vw,30px)}.brand small{color:#fff}
-.goldbtn{background:linear-gradient(#ffe18a,#e8a92f);color:#17120a;padding:11px 18px;border-radius:28px;font-weight:bold;box-shadow:0 3px 0 #9b6416;border:1px solid #ffdc79}
-.ghost{background:#173a5d;color:#fff;border:1px solid #426789;border-radius:20px;padding:9px 14px}
-main{max-width:1200px;margin:auto;padding:22px 16px 40px}.hero{text-align:center;padding:24px 12px 30px;background:linear-gradient(120deg,#071a2d,#123858,#071a2d);border:1px solid #b98731;border-radius:24px;margin-bottom:22px;overflow:hidden}.hero .bigmark{font-size:82px;line-height:1.1;color:var(--gold2);font-weight:bold;text-shadow:0 0 20px #eaa92e}.hero h2{font-size:clamp(25px,5vw,44px);color:var(--gold2);margin:5px}.hero p{margin:8px;color:#fff;font-size:18px}.tagline{display:inline-block;border:1px solid var(--gold);border-radius:30px;padding:8px 22px;color:var(--gold2);font-weight:bold}
-.section-title{color:var(--gold2);font-size:24px;margin:22px 0 14px}.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.tile{background:linear-gradient(145deg,#183b5d,#0b2038);border:2px solid var(--gold);border-radius:20px;min-height:150px;padding:18px 12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 18px #0005;transition:.18s}.tile:hover{transform:translateY(-3px);filter:brightness(1.12)}.emoji{font-size:44px}.tile strong{background:linear-gradient(#ffdf83,#e8a72e);color:#111;width:100%;text-align:center;border-radius:24px;padding:10px 5px;font-size:17px}
-.panel{background:#0c2743;border:1px solid #a8792d;border-radius:18px;padding:18px;margin:15px 0}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.row>*{flex:1}.field{display:flex;flex-direction:column;gap:6px;margin:10px 0}.field label{color:var(--gold2);font-size:14px}.field input,.field select,.field textarea{width:100%;background:#071b30;color:#fff;border:1px solid #55718c;border-radius:10px;padding:12px}.field textarea{min-height:75px}.price{color:var(--gold2);font-weight:bold}.back{margin-bottom:14px}.hidden{display:none!important}.admin-grid{grid-template-columns:repeat(auto-fit,minmax(175px,1fr))}.admin-tile{min-height:160px}.admin-tile .emoji{font-size:48px}.muted{color:var(--muted)}.notice{background:#183b5b;border-right:4px solid var(--gold);padding:12px;border-radius:10px;color:#eaf3fb}.footer{text-align:center;color:var(--gold2);padding:25px 10px;margin-top:25px;border-top:2px solid var(--gold);font-weight:bold}
-.small{font-size:13px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.listrow{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:12px;border-bottom:1px solid #34516b}.listrow:last-child{border:0}
-@media(max-width:600px){.top{padding:8px 12px}.brand small{display:none}.mark{width:46px;height:46px;font-size:29px}.tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.tile{min-height:130px;padding:12px 8px}.emoji{font-size:36px}.tile strong{font-size:14px}.hero{padding:18px 8px}.admin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-</style></head>
+  <style>
+    :root {
+      --navy: #102438;
+      --navy-dark: #071827;
+      --gold: #e7b94f;
+      --green: #075b43;
+      --white: #ffffff;
+      --muted: #c5d0d9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--navy-dark);
+      color: var(--white);
+      min-height: 100vh;
+      padding-bottom: 85px;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 280px;
+      padding: 30px 20px 35px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 110%, #1c6070 0%, transparent 55%),
+        linear-gradient(155deg, #071827, #102438 60%, #075b43);
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(231,185,79,.18);
+      border-radius: 50%;
+      top: -190px;
+      right: -80px;
+    }
+
+    .logo {
+      width: 82px;
+      height: 82px;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      margin: 0 auto 14px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 55px;
+      font-weight: bold;
+      position: relative;
+      text-shadow: 0 0 15px rgba(231,185,79,.5);
+    }
+
+    .logo::after {
+      content: "✦";
+      position: absolute;
+      top: -12px;
+      right: -8px;
+      font-size: 28px;
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      color: var(--gold);
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+
+    .slogan {
+      color: #f4e5bd;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .hero-flag {
+      width: 75px;
+      height: 48px;
+      margin: 18px auto 0;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255,255,255,.4);
+    }
+
+    .hero-flag span {
+      flex: 1;
+    }
+
+    .flag-red { background: #d71920; }
+    .flag-white { background: #fff; }
+    .flag-black { background: #111; }
+
+    .container {
+      max-width: 650px;
+      margin: auto;
+      padding: 22px 16px;
+    }
+
+    .section-title {
+      color: var(--gold);
+      font-size: 21px;
+      margin: 8px 0 17px;
+    }
+
+    .welcome {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .main-card {
+      min-height: 150px;
+      border: 1px solid rgba(231,185,79,.65);
+      border-radius: 18px;
+      margin-bottom: 17px;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: linear-gradient(120deg, #19364d, #102438);
+      box-shadow: 0 8px 22px rgba(0,0,0,.2);
+      text-align: right;
+      width: 100%;
+      color: white;
+    }
+
+    .main-card:active {
+      transform: scale(.98);
+    }
+
+    .card-symbol {
+      width: 75px;
+      height: 75px;
+      flex-shrink: 0;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      font-size: 38px;
+      background: rgba(231,185,79,.12);
+      border: 1px solid var(--gold);
+    }
+
+    .main-card h3 {
+      color: var(--gold);
+      font-size: 21px;
+      margin-bottom: 9px;
+    }
+
+    .main-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .sub-card {
+      padding: 17px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(231,185,79,.4);
+      border-radius: 13px;
+      background: #183247;
+      color: white;
+      width: 100%;
+      text-align: right;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sub-card strong {
+      color: var(--gold);
+      font-size: 16px;
+    }
+
+    .sub-card span {
+      color: var(--gold);
+      font-size: 22px;
+    }
+
+    .back-button {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .install-banner {
+      display: none;
+      margin: 20px 0;
+      padding: 16px;
+      background: #193b35;
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .install-banner p {
+      line-height: 1.8;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .gold-button {
+      background: var(--gold);
+      color: var(--navy-dark);
+      border: 0;
+      border-radius: 10px;
+      padding: 12px 22px;
+      font-weight: bold;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 70px;
+      background: #091b2a;
+      border-top: 1px solid var(--gold);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 5;
+    }
+
+    .bottom-nav button {
+      background: none;
+      border: 0;
+      color: #d5dce2;
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .bottom-nav button span {
+      font-size: 21px;
+    }
+
+    .bottom-nav button.active {
+      color: var(--gold);
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .install-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.78);
+      z-index: 20;
+      justify-content: center;
+      align-items: center;
+      padding: 22px;
+    }
+
+    .install-box {
+      width: 100%;
+      max-width: 380px;
+      background: var(--navy);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 27px 20px;
+      text-align: center;
+      box-shadow: 0 15px 45px rgba(0,0,0,.5);
+    }
+
+    .install-box .mini-logo {
+      font-size: 45px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .install-box h2 {
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .install-box p {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .install-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .later-button {
+      background: transparent;
+      color: white;
+      border: 1px solid #81909c;
+      padding: 12px 18px;
+      border-radius: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #aab8c3;
+      font-size: 12px;
+      padding: 25px 10px;
+    }
+  </style>
+</head>
+
 <body>
-<header class="top"><div class="brand"><div class="mark">D</div><div><h1 id="brandName">الدبل للخدمات</h1><small>إدارة شاملة .. لخدمة أفضل</small></div></div><div class="row" style="flex:0 0 auto"><button class="ghost" onclick="show('home')">الرئيسية</button><button class="goldbtn" onclick="show('adminLogin')">دخول الإدارة</button></div></header>
-<main>
-<section id="home">
- <div class="hero"><div class="bigmark">D</div><h2 id="heroName">الدبل للخدمات</h2><p class="tagline" id="tagline">الدبل نجم جديد في سماء السودان</p><p>خدمات المناسبات والنظافة والمقاولات في مكان واحد</p></div>
- <h2 class="section-title">اختر القسم</h2><div class="tiles">
- <button class="tile" onclick="openCategory('المناسبات')"><span class="emoji">🎉</span><strong>المناسبات</strong></button>
- <button class="tile" onclick="openCategory('النظافة')"><span class="emoji">🧹</span><strong>النظافة</strong></button>
- <button class="tile" onclick="openCategory('المقاولات')"><span class="emoji">🏗️</span><strong>المقاولات</strong></button>
- </div>
- <div class="panel"><h3 style="color:var(--gold2)">تواصل معنا</h3><p class="muted">يمكنك اختيار الخدمة وإرسال طلبك. هذه نسخة تجريبية محلية.</p><button class="goldbtn" onclick="show('about')">عن التطبيق</button></div>
-</section>
-<section id="category" class="hidden"><button class="ghost back" onclick="show('home')">→ رجوع</button><h2 class="section-title" id="catTitle"></h2><div id="serviceTiles" class="tiles"></div></section>
-<section id="service" class="hidden"><button class="ghost back" onclick="show('category')">→ رجوع</button><h2 class="section-title" id="serviceTitle"></h2><div class="panel"><p id="serviceDesc" class="muted"></p><div class="row"><div class="field"><label>السعر للوحدة (د.ل)</label><div class="price" id="servicePrice">حسب الاتفاق</div></div><div class="field"><label>الكمية</label><input id="qty" type="number" min="1" value="1" oninput="calcTotal()"></div></div><div class="price" id="total">الإجمالي: حسب الاتفاق</div><button class="goldbtn" onclick="show('order')">اطلب هذه الخدمة</button></div></section>
-<section id="order" class="hidden"><button class="ghost back" onclick="show('service')">→ رجوع</button><h2 class="section-title">بيانات الطلب</h2><div class="panel"><div class="field"><label>الاسم</label><input id="customer" placeholder="اسم العميل"></div><div class="field"><label>رقم الهاتف</label><input id="phone" placeholder="رقم الهاتف"></div><div class="field"><label>مكان المناسبة / الخدمة</label><input id="place" placeholder="المدينة أو العنوان"></div><div class="field"><label>التاريخ والوقت</label><input id="when" type="datetime-local"></div><div class="field"><label>طريقة الدفع</label><select id="payment"><option>نقداً</option><option>تحويل</option></select></div><div class="field"><label>ملاحظات</label><textarea id="notes"></textarea></div><button class="goldbtn" onclick="saveOrder()">حفظ الطلب التجريبي</button><p id="orderResult" class="notice hidden"></p></div></section>
-<section id="adminLogin" class="hidden"><button class="ghost back" onclick="show('home')">→ رجوع</button><h2 class="section-title">دخول الإدارة</h2><div class="panel"><div class="field"><label>الصفة للتجربة</label><select id="role"><option>المدير</option><option>نائب المدير</option><option>المدير المالي</option></select></div><div class="field"><label>رمز التجربة</label><input id="pin" type="password" placeholder="أدخل 1234"></div><button class="goldbtn" onclick="login()">دخول</button><p class="muted small">رمز النسخة التجريبية: 1234. لا تستخدمه كنظام أمان حقيقي.</p></div></section>
-<section id="admin" class="hidden"><div class="row"><button class="ghost back" onclick="show('home')">→ خروج</button><span id="roleLabel" class="price"></span></div><h2 class="section-title">لوحة الإدارة</h2><div class="tiles admin-grid" id="adminTiles"></div></section>
-<section id="adminPage" class="hidden"><button class="ghost back" onclick="show('admin')">→ رجوع للوحة الإدارة</button><h2 class="section-title" id="adminPageTitle"></h2><div id="adminPageContent" class="panel"></div></section>
-<section id="about" class="hidden"><button class="ghost back" onclick="show('home')">→ رجوع</button><h2 class="section-title">عن التطبيق</h2><div class="panel"><h3 style="color:var(--gold2)">الدبل للخدمات</h3><p>الدبل نجم جديد في سماء السودان</p><p class="muted">نسخة تجريبية لعرض الواجهات ومسارات الاستخدام.</p></div></section>
-<div class="footer">★ الدبل نجم جديد في سماء السودان ★</div>
-</main>
-<script>
-const adminCards=[
- ['الإحصائيات','📈'],['الإيرادات والحسابات','🪙'],['الطلبات','📋'],['الحجوزات','🗓️'],
- ['الأقسام والخدمات','🧰'],['الأسعار','🏷️'],['الأصناف والإضافات','🍽️'],['الصور والعروض','🖼️'],
- ['الموظفون والصلاحيات','👥'],['إعدادات التطبيق','⚙️'],['تحديث التطبيق','☁️'],['سجل العمليات','📄'],
- ['رسائل واستفسارات العملاء','✉️'],['الإشعارات','🔔']];
-const data={
- 'المناسبات':[['الكوكتيل','🍱','تشكيلات ضيافة ومأكولات للمناسبات',120],['السُّفَر','🍲','السفر السودانية للفطور والغداء والعشاء',150],['حجز الصالات','🏛️','حجز صالة للمناسبة',0],['طاقم ضيافة','🤵','طلب طاقم ضيافة رجال أو نساء',0],['منع التصوير وتأمين دخلة العروس','🛡️','خدمة خصوصية وتأمين المناسبة',0]],
- 'النظافة':[['تنظيف المنازل','🏠','تنظيف شامل أو مطابخ أو حمامات أو أرضيات ونوافذ',0],['تنظيف الكنب والكراسي','🛋️','تنظيف الكنب والكراسي حسب العدد والحالة',0],['الشركات والمؤسسات','🏢','تنظيف المكاتب والأرضيات والزجاج',0],['الحدائق','🌳','تنظيف وترتيب الحدائق',0],['المستشفيات','🏥','خدمات نظافة للمرافق الصحية',0]],
- 'المقاولات':[['البلاط والتبليط','🧱','أعمال البلاط والتشطيب',0],['التشطيب','🏗️','أعمال التشطيب الداخلي والخارجي',0],['التكسير والترميم','🔨','أعمال التكسير والترميم',0]]
-};
-let currentService=null,currentRole='المدير';
-function show(id){document.querySelectorAll('main>section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0)}
-function openCategory(name){document.getElementById('catTitle').textContent=name;let box=document.getElementById('serviceTiles');box.innerHTML='';(data[name]||[]).forEach((s,i)=>{let b=document.createElement('button');b.className='tile';b.innerHTML=`<span class="emoji">${s[1]}</span><strong>${s[0]}</strong>`;b.onclick=()=>openService(name,i);box.appendChild(b)});show('category')}
-function openService(cat,i){let s=data[cat][i];currentService={cat,name:s[0],desc:s[2],price:s[3]};document.getElementById('serviceTitle').textContent=s[0];document.getElementById('serviceDesc').textContent=s[2];document.getElementById('servicePrice').textContent=s[3]?s[3]+' د.ل':'يحدد بعد المعاينة / الاتفاق';document.getElementById('qty').value=1;calcTotal();show('service')}
-function calcTotal(){if(!currentService)return;let q=Math.max(1,+document.getElementById('qty').value||1);document.getElementById('total').textContent='الإجمالي: '+(currentService.price?currentService.price*q+' د.ل':'يحدد بعد الاتفاق')}
-function saveOrder(){let o={id:Date.now(),service:currentService?.name,qty:document.getElementById('qty').value,name:document.getElementById('customer').value,phone:document.getElementById('phone').value,place:document.getElementById('place').value,when:document.getElementById('when').value,payment:document.getElementById('payment').value,notes:document.getElementById('notes').value,status:'جديد'};if(!o.name||!o.phone){alert('أدخل الاسم ورقم الهاتف');return}let arr=JSON.parse(localStorage.getItem('aldbulOrders')||'[]');arr.push(o);localStorage.setItem('aldbulOrders',JSON.stringify(arr));let p=document.getElementById('orderResult');p.textContent='تم حفظ الطلب التجريبي رقم '+String(arr.length).padStart(3,'0')+' على هذا الجهاز.';p.classList.remove('hidden')}
-function login(){if(document.getElementById('pin').value!=='1234'){alert('رمز التجربة غير صحيح');return}currentRole=document.getElementById('role').value;document.getElementById('roleLabel').textContent='مرحباً، '+currentRole;renderAdmin();show('admin')}
-function renderAdmin(){let box=document.getElementById('adminTiles');box.innerHTML='';let hidden=JSON.parse(localStorage.getItem('hiddenAdminCards')||'[]');adminCards.forEach(([name,emoji],i)=>{if(hidden.includes(i))return;let b=document.createElement('button');b.className='tile admin-tile';b.innerHTML=`<span class="emoji">${emoji}</span><strong>${name}</strong>`;b.onclick=()=>openAdminPage(name);box.appendChild(b)})}
-function openAdminPage(name){document.getElementById('adminPageTitle').textContent=name;let c=document.getElementById('adminPageContent');let orders=JSON.parse(localStorage.getItem('aldbulOrders')||'[]');let html='';
-if(name==='الطلبات'||name==='الحجوزات'){html=orders.length?orders.map((o,i)=>`<div class="listrow"><span>#${String(i+1).padStart(3,'0')} · ${o.service}<br><small class="muted">${o.name} · ${o.phone} · ${o.status}</small></span><span class="price">${o.qty} ×</span></div>`).join(''):'لا توجد طلبات تجريبية بعد.'}
-else if(name==='الإحصائيات'){html=`<h3>إجمالي الطلبات: ${orders.length}</h3><p>الطلبات الجديدة: ${orders.filter(o=>o.status==='جديد').length}</p><p>هذه أرقام تجريبية محفوظة على الجهاز.</p>`}
-else if(name==='إعدادات التطبيق'){html=`<div class="field"><label>اسم التطبيق</label><input id="editName" value="${localStorage.getItem('brandName')||'الدبل للخدمات'}"></div><div class="field"><label>العبارة</label><input id="editTag" value="${localStorage.getItem('tagline')||'الدبل نجم جديد في سماء السودان'}"></div><div class="field"><label>لون الخلفية الكحلي</label><input id="editColor" type="color" value="${localStorage.getItem('navy')||'#071f38'}"></div><button class="goldbtn" onclick="saveDesign()">حفظ التغييرات</button><hr><h3>إظهار / إخفاء بطاقات الإدارة</h3>${adminCards.map(([n,e],i)=>`<label style="display:block;padding:6px"><input type="checkbox" id="card${i}" ${!JSON.parse(localStorage.getItem('hiddenAdminCards')||'[]').includes(i)?'checked':''}> ${e} ${n}</label>`).join('')}<button class="goldbtn" onclick="saveCards()">حفظ ترتيب الظهور</button>`}
-else if(name==='الموظفون والصلاحيات'){html=`<p>المدير ونائب المدير: إدارة كاملة في النسخة المعتمدة.</p><p>المدير المالي: متابعة الإيرادات والمصروفات والإحصائيات والطلبات والزيارات دون تعديل أو حذف.</p><p class="muted">إدارة الحسابات الفعلية تتطلب ربط قاعدة البيانات.</p>`}
-else if(name==='الإيرادات والحسابات'){html=`<p>الطلبات المسجلة: ${orders.length}</p><p>لا تُحتسب قيمة كإيراد إلا بعد تأكيد الاستلام من الإدارة.</p>`}
-else if(name==='تحديث التطبيق'){html='<p>هذه نسخة تجريبية محلية. تحديث النسخة المنشورة يتم بعد تجهيز الاستضافة.</p>'}
-else {html=`<p>صفحة ${name} التجريبية.</p><p class="muted">يمكن استكمال عمليات الإدارة وربطها بقاعدة البيانات في مرحلة الربط.</p>`}
-c.innerHTML=html;show('adminPage')}
-function saveDesign(){let n=document.getElementById('editName').value,t=document.getElementById('editTag').value,col=document.getElementById('editColor').value;localStorage.setItem('brandName',n);localStorage.setItem('tagline',t);localStorage.setItem('navy',col);applyDesign();alert('تم حفظ التغييرات على هذا الجهاز')}
-function saveCards(){let h=[];adminCards.forEach((x,i)=>{if(!document.getElementById('card'+i).checked)h.push(i)});localStorage.setItem('hiddenAdminCards',JSON.stringify(h));renderAdmin();alert('تم حفظ ظهور البطاقات')}
-function applyDesign(){let n=localStorage.getItem('brandName')||'الدبل للخدمات',t=localStorage.getItem('tagline')||'الدبل نجم جديد في سماء السودان';document.getElementById('brandName').textContent=n;document.getElementById('heroName').textContent=n;document.getElementById('tagline').textContent=t;document.documentElement.style.setProperty('--navy',localStorage.getItem('navy')||'#071f38')}
-applyDesign();renderAdmin();
-</script>
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js", { scope: "./" })
-      .catch(error => console.error("Service worker registration failed:", error));
-  });
-}
-</script>
 
-</body></html>
+  <header class="hero">
+    <div class="logo">D</div>
+    <h1>الدبل للخدمات</h1>
+    <p class="slogan">الدبل نجم جديد في سماء السودان</p>
+    <div class="hero-flag" aria-label="علم السودان">
+      <span class="flag-red"></span>
+      <span class="flag-white"></span>
+      <span class="flag-black"></span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="homePage" class="page active">
+      <h2 class="section-title">مرحباً بكم في الدبل</h2>
+      <p class="welcome">
+        نقدم لكم خدمات المناسبات والنظافة بجودة واهتمام.
+        اختر القسم الذي ترغب في استعراض خدماته.
+      </p>
+
+      <button class="main-card" onclick="showPage('eventsPage')">
+        <div class="card-symbol">🎉</div>
+        <div>
+          <h3>المناسبات</h3>
+          <p>الكوكتيل والسُّفَر وحجز الصالات وخدمات المناسبات</p>
+        </div>
+      </button>
+
+      <button class="main-card" onclick="showPage('cleaningPage')">
+        <div class="card-symbol">✨</div>
+        <div>
+          <h3>النظافة</h3>
+          <p>نظافة المنازل والشركات والحدائق والمستشفيات</p>
+        </div>
+      </button>
+
+      <div class="install-banner" id="installBanner">
+        <p>ثبّت تطبيق الدبل على هاتفك للوصول إليه بسهولة.</p>
+        <button class="gold-button" onclick="installApp()">تثبيت التطبيق</button>
+      </div>
+    </section>
+
+    <section id="eventsPage" class="page">
+      <button class="back-button" onclick="showPage('homePage')">رجوع ←</button>
+      <h2 class="section-title">خدمات المناسبات</h2>
+
+      <button class="sub-card"><strong>الكوكتيل</strong><span>✦</span></button>
+      <button class="sub-card"><strong>السُّفَر</strong><span>✦</span></button>
+      <button class="sub-card"><strong>حجز الصالات</strong><span>✦</span></button>
+      <button class="sub-card"><strong>طلب طاقم ضيافة</strong><span>✦</span></button>
+      <button class="sub-card"><strong>منع التصوير وتأمين دخلة العروس</strong><span>✦</span></button>
+    </section>
+
+    <section id="cleaningPage" class="page">
+      <button class="back-button" onclick="showPage('homePage')">رجوع ←</button>
+      <h2 class="section-title">خدمات النظافة</h2>
+
+      <button class="sub-card"><strong>نظافة المنازل</strong><span>✦</span></button>
+      <button class="sub-card"><strong>تنظيف الكنب والكراسي</strong><span>✦</span></button>
+      <button class="sub-card"><strong>الشركات والمؤسسات</strong><span>✦</span></button>
+      <button class="sub-card"><strong>نظافة الحدائق</strong><span>✦</span></button>
+      <button class="sub-card"><strong>نظافة المستشفيات</strong><span>✦</span></button>
+    </section>
+
+    <section id="aboutPage" class="page">
+      <h2 class="section-title">عن الدبل</h2>
+      <p class="welcome">
+        الدبل للخدمات
+        <br>
+        الدبل نجم جديد في سماء السودان
+      </p>
+    </section>
+
+    <section id="contactPage" class="page">
+      <h2 class="section-title">اتصال مباشر</h2>
+      <p class="welcome">سيتم إضافة رقم الاتصال الرسمي هنا.</p>
+    </section>
+
+    <div class="footer">الدبل للخدمات ©</div>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="active" onclick="showPage('homePage', this)">
+      <span>⌂</span>الرئيسية
+    </button>
+    <button onclick="showPage('contactPage', this)">
+      <span>☎</span>اتصال مباشر
+    </button>
+    <button onclick="openWhatsApp()">
+      <span>◉</span>واتساب
+    </button>
+    <button onclick="showPage('aboutPage', this)">
+      <span>ⓘ</span>عن التطبيق
+    </button>
+  </nav>
+
+  <div class="install-overlay" id="installOverlay">
+    <div class="install-box">
+      <div class="mini-logo">✦ D</div>
+      <h2>تطبيق الدبل للخدمات</h2>
+      <p>
+        هل تريد تثبيت تطبيق الدبل على هاتفك؟
+        اضغط تثبيت ليظهر التطبيق على شاشة هاتفك.
+      </p>
+      <div class="install-actions">
+        <button class="gold-button" onclick="installApp()">تثبيت</button>
+        <button class="later-button" onclick="closeInstall()">لاحقاً</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let deferredInstallPrompt = null;
+
+    function showPage(pageId, button) {
+      document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+      });
+
+      const selectedPage = document.getElementById(pageId);
+      if (selectedPage) selectedPage.classList.add("active");
+
+      document.querySelectorAll(".bottom-nav button").forEach(item => {
+        item.classList.remove("active");
+      });
+
+      if (button) button.classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function openWhatsApp() {
+      alert("سيتم ربط رقم واتساب الرسمي عند تجهيز إعدادات التطبيق.");
+    }
+
+    function closeInstall() {
+      document.getElementById("installOverlay").style.display = "none";
+    }
+
+    window.addEventListener("beforeinstallprompt", event => {
+      event.preventDefault();
+      deferredInstallPrompt = event;
+
+      if (!window.matchMedia("(display-mode: standalone)").matches) {
+        document.getElementById("installOverlay").style.display = "flex";
+        document.getElementById("installBanner").style.display = "block";
+      }
+    });
+
+    async function installApp() {
+      if (!deferredInstallPrompt) {
+        alert("التثبيت التلقائي غير متاح حالياً في هذا المتصفح. افتح قائمة المتصفح واختر تثبيت التطبيق.");
+        return;
+      }
+
+      deferredInstallPrompt.prompt();
+      const result = await deferredInstallPrompt.userChoice;
+
+      if (result.outcome === "accepted") {
+        closeInstall();
+      }
+
+      deferredInstallPrompt = null;
+    }
+
+    window.addEventListener("appinstalled", () => {
+      closeInstall();
+      document.getElementById("installBanner").style.display = "none";
+    });
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js", {
+          scope: "./"
+        }).catch(error => {
+          console.error("Service worker registration failed:", error);
+        });
+      });
+    }
+  </script>
+
+</body>
+ </html>
+ 
