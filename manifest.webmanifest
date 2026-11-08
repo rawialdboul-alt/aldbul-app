@@ -1,8 +1,7 @@
-
 {
   "id": "./",
   "name": "الدبل للخدمات",
-  "short_name": "الدبل",
+  "short_name": "الدبل للخدمات",
   "description": "الدبل نجم جديد في سماء السودان",
   "lang": "ar",
   "dir": "rtl",
@@ -10,8 +9,8 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#071f38",
-  "theme_color": "#071f38",
+  "background_color": "#102438",
+  "theme_color": "#102438",
   "icons": [
     {
       "src": "./icons/icon-192.png",
