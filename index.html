@@ -1,533 +1,662 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#102438">
-  <meta name="description" content="الدبل للخدمات، الدبل نجم جديد في سماء السودان">
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
-  <link rel="apple-touch-icon" href="./icons/icon-192.png">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>الدبل للخدمات</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#102438">
+<meta name="description" content="الدبل للخدمات">
+<title>الدبل للخدمات</title>
 
-  <style>
-    :root {
-      --navy: #102438;
-      --navy-dark: #071827;
-      --gold: #e7b94f;
-      --green: #075b43;
-      --white: #ffffff;
-      --muted: #c5d0d9;
-    }
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+:root {
+  --navy:#102438;
+  --navy-light:#193b52;
+  --gold:#e7b94f;
+  --green:#075b43;
+  --white:#ffffff;
+  --background:#f1f3f6;
+  --text:#243343;
+  --muted:#788692;
+  --border:#dce2e8;
+  --danger:#a52e2e;
+}
 
-    body {
-      font-family: Tahoma, Arial, sans-serif;
-      background: var(--navy-dark);
-      color: var(--white);
-      min-height: 100vh;
-      padding-bottom: 85px;
-    }
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
+body {
+  font-family:'Cairo',sans-serif;
+  background:var(--background);
+  color:var(--text);
+  min-height:100vh;
+}
 
-    .hero {
-      min-height: 280px;
-      padding: 30px 20px 35px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 50% 110%, #1c6070 0%, transparent 55%),
-        linear-gradient(155deg, #071827, #102438 60%, #075b43);
-      border-bottom: 2px solid var(--gold);
-    }
+button,input,textarea,select {
+  font-family:inherit;
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      border: 1px solid rgba(231,185,79,.18);
-      border-radius: 50%;
-      top: -190px;
-      right: -80px;
-    }
+button {
+  cursor:pointer;
+  border:0;
+}
 
-    .logo {
-      width: 82px;
-      height: 82px;
-      border: 3px solid var(--gold);
-      border-radius: 50%;
-      margin: 0 auto 14px;
-      display: grid;
-      place-items: center;
-      color: var(--gold);
-      font-size: 55px;
-      font-weight: bold;
-      position: relative;
-      text-shadow: 0 0 15px rgba(231,185,79,.5);
-    }
+.hidden {
+  display:none!important;
+}
 
-    .logo::after {
-      content: "✦";
-      position: absolute;
-      top: -12px;
-      right: -8px;
-      font-size: 28px;
-      color: var(--gold);
-    }
+button:disabled {
+  opacity:.55;
+  cursor:not-allowed;
+}
 
-    .hero h1 {
-      color: var(--gold);
-      font-size: 27px;
-      margin-bottom: 10px;
-    }
+#splash {
+  min-height:100vh;
+  min-height:100svh;
+  background:linear-gradient(180deg,#071725,#102438 65%,#193b52);
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  text-align:center;
+  padding:35px 20px;
+  position:relative;
+  overflow:hidden;
+}
 
-    .slogan {
-      color: #f4e5bd;
-      font-size: 14px;
-      line-height: 1.8;
-    }
+.splash-logo {
+  width:105px;
+  height:105px;
+  border:3px solid var(--gold);
+  border-radius:28px;
+  background:linear-gradient(145deg,#f6cb68,#d99825);
+  color:var(--navy);
+  display:grid;
+  place-items:center;
+  font-size:65px;
+  font-weight:900;
+  margin:30px auto 20px;
+  box-shadow:0 0 30px #e7b94f55;
+}
 
-    .hero-flag {
-      width: 75px;
-      height: 48px;
-      margin: 18px auto 0;
-      border-radius: 5px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgba(255,255,255,.4);
-    }
+.splash-content {
+  position:relative;
+  z-index:2;
+}
 
-    .hero-flag span {
-      flex: 1;
-    }
+.splash-content h1 {
+  color:var(--gold);
+  font-size:30px;
+  font-weight:900;
+}
 
-    .flag-red { background: #d71920; }
-    .flag-white { background: #fff; }
-    .flag-black { background: #111; }
+.splash-content p {
+  line-height:2;
+  margin-top:8px;
+}
 
-    .container {
-      max-width: 650px;
-      margin: auto;
-      padding: 22px 16px;
-    }
+.splash-button {
+  background:linear-gradient(135deg,#f7d47d,#d99d32);
+  color:var(--navy);
+  font-size:17px;
+  font-weight:900;
+  padding:15px;
+  width:100%;
+  border-radius:14px;
+}
 
-    .section-title {
-      color: var(--gold);
-      font-size: 21px;
-      margin: 8px 0 17px;
-    }
+.splash-bottom {
+  width:100%;
+  max-width:400px;
+  position:relative;
+  z-index:2;
+}
 
-    .welcome {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.8;
-      margin-bottom: 22px;
-    }
+.splash-bottom p {
+  font-size:12px;
+  margin-top:12px;
+  color:#f5dfad;
+}
 
-    .main-card {
-      min-height: 150px;
-      border: 1px solid rgba(231,185,79,.65);
-      border-radius: 18px;
-      margin-bottom: 17px;
-      padding: 22px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      background: linear-gradient(120deg, #19364d, #102438);
-      box-shadow: 0 8px 22px rgba(0,0,0,.2);
-      text-align: right;
-      width: 100%;
-      color: white;
-    }
+#app {
+  max-width:1100px;
+  margin:auto;
+  padding:12px;
+  padding-bottom:90px;
+}
 
-    .main-card:active {
-      transform: scale(.98);
-    }
+.topbar {
+  background:linear-gradient(135deg,var(--navy),var(--navy-light));
+  border-bottom:4px solid var(--gold);
+  border-radius:18px;
+  padding:19px;
+  color:white;
+  text-align:center;
+  position:relative;
+}
 
-    .card-symbol {
-      width: 75px;
-      height: 75px;
-      flex-shrink: 0;
-      border-radius: 17px;
-      display: grid;
-      place-items: center;
-      font-size: 38px;
-      background: rgba(231,185,79,.12);
-      border: 1px solid var(--gold);
-    }
+.brand-logo {
+  color:var(--gold);
+  font-size:37px;
+  font-weight:900;
+}
 
-    .main-card h3 {
-      color: var(--gold);
-      font-size: 21px;
-      margin-bottom: 9px;
-    }
+.topbar h1 {
+  color:var(--gold);
+  font-size:25px;
+  font-weight:900;
+}
 
-    .main-card p {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-    }
+.topbar p {
+  font-size:12px;
+  color:#f5dfad;
+  margin-top:5px;
+}
 
-    .sub-card {
-      padding: 17px;
-      margin-bottom: 12px;
-      border: 1px solid rgba(231,185,79,.4);
-      border-radius: 13px;
-      background: #183247;
-      color: white;
-      width: 100%;
-      text-align: right;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.hero {
+  background:linear-gradient(135deg,#102438,#193b52);
+  border:1px solid var(--gold);
+  border-radius:18px;
+  color:white;
+  padding:23px 15px;
+  text-align:center;
+  margin:15px 0;
+}
 
-    .sub-card strong {
-      color: var(--gold);
-      font-size: 16px;
-    }
+.hero h2 {
+  color:var(--gold);
+  font-size:21px;
+  margin-bottom:8px;
+}
 
-    .sub-card span {
-      color: var(--gold);
-      font-size: 22px;
-    }
+.hero p {
+  font-size:13px;
+  line-height:2;
+}
 
-    .back-button {
-      background: transparent;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      padding: 10px 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
+.section-title {
+  color:var(--navy);
+  font-size:20px;
+  font-weight:900;
+  margin:22px 0 13px;
+}
 
-    .install-banner {
-      display: none;
-      margin: 20px 0;
-      padding: 16px;
-      background: #193b35;
-      border: 1px solid var(--gold);
-      border-radius: 14px;
-      text-align: center;
-    }
+.home-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:15px;
+}
 
-    .install-banner p {
-      line-height: 1.8;
-      margin-bottom: 12px;
-      font-size: 14px;
-    }
+.home-card {
+  border:2px solid var(--gold);
+  border-radius:18px;
+  overflow:hidden;
+  background:var(--navy);
+  color:white;
+  min-height:190px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:20px;
+}
 
-    .gold-button {
-      background: var(--gold);
-      color: var(--navy-dark);
-      border: 0;
-      border-radius: 10px;
-      padding: 12px 22px;
-      font-weight: bold;
-    }
+.home-card.events {
+  background:linear-gradient(135deg,#102438,#34485a);
+}
 
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      height: 70px;
-      background: #091b2a;
-      border-top: 1px solid var(--gold);
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      z-index: 5;
-    }
+.home-card.cleaning {
+  background:linear-gradient(135deg,#075b43,#102438);
+}
 
-    .bottom-nav button {
-      background: none;
-      border: 0;
-      color: #d5dce2;
-      font-size: 11px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      align-items: center;
-    }
+.home-card .symbol {
+  font-size:48px;
+  margin-bottom:10px;
+}
 
-    .bottom-nav button span {
-      font-size: 21px;
-    }
+.home-card h3 {
+  color:var(--gold);
+  font-size:21px;
+  font-weight:900;
+}
 
-    .bottom-nav button.active {
-      color: var(--gold);
-    }
+.home-card p {
+  font-size:12px;
+  line-height:1.8;
+  margin-top:5px;
+}
 
-    .page {
-      display: none;
-    }
+.card-arrow {
+  color:var(--gold);
+  font-weight:800;
+  margin-top:12px;
+}
 
-    .page.active {
-      display: block;
-    }
+.page {
+  display:none;
+}
 
-    .install-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.78);
-      z-index: 20;
-      justify-content: center;
-      align-items: center;
-      padding: 22px;
-    }
+.page.active {
+  display:block;
+}
 
-    .install-box {
-      width: 100%;
-      max-width: 380px;
-      background: var(--navy);
-      border: 2px solid var(--gold);
-      border-radius: 20px;
-      padding: 27px 20px;
-      text-align: center;
-      box-shadow: 0 15px 45px rgba(0,0,0,.5);
-    }
+.back-button {
+  background:var(--navy);
+  color:white;
+  padding:10px 17px;
+  border-radius:10px;
+  margin:12px 0;
+  font-weight:800;
+}
 
-    .install-box .mini-logo {
-      font-size: 45px;
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
+.service-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
 
-    .install-box h2 {
-      color: var(--gold);
-      margin-bottom: 12px;
-      font-size: 21px;
-    }
+.service-card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 4px 14px #10243812;
+}
 
-    .install-box p {
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
+.service-card img {
+  width:100%;
+  height:175px;
+  object-fit:cover;
+}
 
-    .install-actions {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
+.service-card-content {
+  padding:15px;
+}
 
-    .later-button {
-      background: transparent;
-      color: white;
-      border: 1px solid #81909c;
-      padding: 12px 18px;
-      border-radius: 10px;
-    }
+.service-card h3 {
+  color:var(--navy);
+  font-size:17px;
+}
 
-    .footer {
-      text-align: center;
-      color: #aab8c3;
-      font-size: 12px;
-      padding: 25px 10px;
-    }
-  </style>
+.service-card p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  margin-top:6px;
+}
+
+.price {
+  color:var(--green);
+  font-size:15px;
+  font-weight:900;
+  margin-top:9px;
+}
+
+.gold-button {
+  background:linear-gradient(135deg,#f6d47b,#dca63c);
+  color:var(--navy);
+  width:100%;
+  padding:13px;
+  border-radius:11px;
+  font-weight:900;
+  margin-top:12px;
+}
+
+.panel {
+  background:white;
+  padding:17px;
+  border-radius:16px;
+  border:1px solid var(--border);
+  margin:13px 0;
+}
+
+.field {
+  margin:13px 0;
+}
+
+.field label {
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width:100%;
+  padding:12px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff;
+  font-size:14px;
+  outline:none;
+}
+
+.total-box {
+  background:#edf5ef;
+  color:var(--green);
+  padding:15px;
+  border-radius:12px;
+  text-align:center;
+  font-size:20px;
+  font-weight:900;
+  margin:15px 0;
+}
+
+.admin-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.admin-card {
+  background:linear-gradient(145deg,var(--navy),#193b52);
+  color:white;
+  border:1px solid var(--gold);
+  border-radius:14px;
+  min-height:115px;
+  padding:13px 7px;
+  text-align:center;
+}
+
+.admin-card .symbol {
+  display:block;
+  font-size:29px;
+  margin-bottom:7px;
+}
+
+.admin-card strong {
+  font-size:12px;
+}
+
+.stats-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.stat-card {
+  background:#fff;
+  border:1px solid var(--border);
+  padding:15px 7px;
+  border-radius:13px;
+  text-align:center;
+}
+
+.stat-card strong {
+  display:block;
+  color:var(--green);
+  font-size:23px;
+}
+
+.stat-card span {
+  font-size:11px;
+  color:var(--muted);
+}
+
+.bottom-nav {
+  position:fixed;
+  bottom:0;
+  right:0;
+  left:0;
+  z-index:50;
+  display:flex;
+  justify-content:space-around;
+  background:var(--navy);
+  border-top:3px solid var(--gold);
+  padding:9px 3px calc(9px + env(safe-area-inset-bottom));
+}
+
+.bottom-nav button {
+  background:transparent;
+  color:white;
+  font-size:10px;
+  font-weight:700;
+}
+
+.bottom-nav span {
+  display:block;
+  color:var(--gold);
+  font-size:21px;
+}
+
+.record {
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:13px;
+  margin:10px 0;
+}
+
+.record h4 {
+  color:var(--navy);
+  margin-bottom:8px;
+}
+
+.record p {
+  font-size:12px;
+  line-height:1.8;
+}
+
+.notice {
+  background:#fff6df;
+  padding:12px;
+  border-radius:10px;
+  font-size:12px;
+  line-height:1.8;
+}
+
+footer {
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  padding:20px;
+}
+
+@media(min-width:650px) {
+  .home-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .service-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .admin-grid {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+
+  .stats-grid {
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header class="hero">
-    <div class="logo">D</div>
+<section id="splash">
+  <div class="splash-content">
+    <div class="splash-logo">D</div>
     <h1>الدبل للخدمات</h1>
-    <p class="slogan">الدبل نجم جديد في سماء السودان</p>
-    <div class="hero-flag" aria-label="علم السودان">
-      <span class="flag-red"></span>
-      <span class="flag-white"></span>
-      <span class="flag-black"></span>
-    </div>
-  </header>
-
-  <main class="container">
-
-    <section id="homePage" class="page active">
-      <h2 class="section-title">مرحباً بكم في الدبل</h2>
-      <p class="welcome">
-        نقدم لكم خدمات المناسبات والنظافة بجودة واهتمام.
-        اختر القسم الذي ترغب في استعراض خدماته.
-      </p>
-
-      <button class="main-card" onclick="showPage('eventsPage')">
-        <div class="card-symbol">🎉</div>
-        <div>
-          <h3>المناسبات</h3>
-          <p>الكوكتيل والسُّفَر وحجز الصالات وخدمات المناسبات</p>
-        </div>
-      </button>
-
-      <button class="main-card" onclick="showPage('cleaningPage')">
-        <div class="card-symbol">✨</div>
-        <div>
-          <h3>النظافة</h3>
-          <p>نظافة المنازل والشركات والحدائق والمستشفيات</p>
-        </div>
-      </button>
-
-      <div class="install-banner" id="installBanner">
-        <p>ثبّت تطبيق الدبل على هاتفك للوصول إليه بسهولة.</p>
-        <button class="gold-button" onclick="installApp()">تثبيت التطبيق</button>
-      </div>
-    </section>
-
-    <section id="eventsPage" class="page">
-      <button class="back-button" onclick="showPage('homePage')">رجوع ←</button>
-      <h2 class="section-title">خدمات المناسبات</h2>
-
-      <button class="sub-card"><strong>الكوكتيل</strong><span>✦</span></button>
-      <button class="sub-card"><strong>السُّفَر</strong><span>✦</span></button>
-      <button class="sub-card"><strong>حجز الصالات</strong><span>✦</span></button>
-      <button class="sub-card"><strong>طلب طاقم ضيافة</strong><span>✦</span></button>
-      <button class="sub-card"><strong>منع التصوير وتأمين دخلة العروس</strong><span>✦</span></button>
-    </section>
-
-    <section id="cleaningPage" class="page">
-      <button class="back-button" onclick="showPage('homePage')">رجوع ←</button>
-      <h2 class="section-title">خدمات النظافة</h2>
-
-      <button class="sub-card"><strong>نظافة المنازل</strong><span>✦</span></button>
-      <button class="sub-card"><strong>تنظيف الكنب والكراسي</strong><span>✦</span></button>
-      <button class="sub-card"><strong>الشركات والمؤسسات</strong><span>✦</span></button>
-      <button class="sub-card"><strong>نظافة الحدائق</strong><span>✦</span></button>
-      <button class="sub-card"><strong>نظافة المستشفيات</strong><span>✦</span></button>
-    </section>
-
-    <section id="aboutPage" class="page">
-      <h2 class="section-title">عن الدبل</h2>
-      <p class="welcome">
-        الدبل للخدمات
-        <br>
-        الدبل نجم جديد في سماء السودان
-      </p>
-    </section>
-
-    <section id="contactPage" class="page">
-      <h2 class="section-title">اتصال مباشر</h2>
-      <p class="welcome">سيتم إضافة رقم الاتصال الرسمي هنا.</p>
-    </section>
-
-    <div class="footer">الدبل للخدمات ©</div>
-  </main>
-
-  <nav class="bottom-nav">
-    <button class="active" onclick="showPage('homePage', this)">
-      <span>⌂</span>الرئيسية
-    </button>
-    <button onclick="showPage('contactPage', this)">
-      <span>☎</span>اتصال مباشر
-    </button>
-    <button onclick="openWhatsApp()">
-      <span>◉</span>واتساب
-    </button>
-    <button onclick="showPage('aboutPage', this)">
-      <span>ⓘ</span>عن التطبيق
-    </button>
-  </nav>
-
-  <div class="install-overlay" id="installOverlay">
-    <div class="install-box">
-      <div class="mini-logo">✦ D</div>
-      <h2>تطبيق الدبل للخدمات</h2>
-      <p>
-        هل تريد تثبيت تطبيق الدبل على هاتفك؟
-        اضغط تثبيت ليظهر التطبيق على شاشة هاتفك.
-      </p>
-      <div class="install-actions">
-        <button class="gold-button" onclick="installApp()">تثبيت</button>
-        <button class="later-button" onclick="closeInstall()">لاحقاً</button>
-      </div>
-    </div>
+    <p>الدبل نجم جديد في سماء السودان 🇸🇩</p>
+    <p>خدمات المناسبات والنظافة في مكان واحد</p>
   </div>
 
-  <script>
-    let deferredInstallPrompt = null;
+  <div class="splash-bottom">
+    <button class="splash-button" onclick="enterApp()">دخول إلى التطبيق</button>
+    <p>أهلاً بكم في الدبل للخدمات</p>
+  </div>
+</section>
 
-    function showPage(pageId, button) {
-      document.querySelectorAll(".page").forEach(page => {
-        page.classList.remove("active");
-      });
+<div id="app" class="hidden">
 
-      const selectedPage = document.getElementById(pageId);
-      if (selectedPage) selectedPage.classList.add("active");
+<header class="topbar">
+  <div class="brand-logo">✦ D ✦</div>
+  <h1>الدبل للخدمات</h1>
+  <p>الدبل نجم جديد في سماء السودان 🇸🇩</p>
+</header>
 
-      document.querySelectorAll(".bottom-nav button").forEach(item => {
-        item.classList.remove("active");
-      });
+<section id="homePage" class="page active">
+  <div class="hero">
+    <h2>مرحباً بكم في الدبل للخدمات</h2>
+    <p>خدمات المناسبات والنظافة بجودة واحترافية</p>
+  </div>
 
-      if (button) button.classList.add("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+  <h2 class="section-title">أقسامنا الرئيسية</h2>
 
-    function openWhatsApp() {
-      alert("سيتم ربط رقم واتساب الرسمي عند تجهيز إعدادات التطبيق.");
-    }
+  <div class="home-grid">
+    <article class="home-card events" onclick="openGroup(2)">
+      <span class="symbol">🎉</span>
+      <h3>الدبل للمناسبات</h3>
+      <p>الكوكتيل والسُّفَر والوجبات وخدمات المناسبات</p>
+      <span class="card-arrow">استكشف الخدمات ←</span>
+    </article>
 
-    function closeInstall() {
-      document.getElementById("installOverlay").style.display = "none";
-    }
+    <article class="home-card cleaning" onclick="openGroup(3)">
+      <span class="symbol">✨</span>
+      <h3>الدبل للنظافة</h3>
+      <p>تنظيف المنازل والشركات والمؤسسات والمستشفيات والحدائق</p>
+      <span class="card-arrow">استكشف الخدمات ←</span>
+    </article>
+  </div>
+</section>
 
-    window.addEventListener("beforeinstallprompt", event => {
-      event.preventDefault();
-      deferredInstallPrompt = event;
+<section id="servicesPage" class="page">
+  <button class="back-button" onclick="showPage('homePage')">رجوع للرئيسية ←</button>
+  <h2 id="groupTitle" class="section-title">الخدمات</h2>
+  <div id="subcategories"></div>
+  <div id="servicesList" class="service-grid"></div>
+</section>
 
-      if (!window.matchMedia("(display-mode: standalone)").matches) {
-        document.getElementById("installOverlay").style.display = "flex";
-        document.getElementById("installBanner").style.display = "block";
-      }
-    });
+<section id="detailsPage" class="page">
+  <button class="back-button" onclick="showPage('servicesPage')">رجوع للخدمات ←</button>
+  <div id="serviceDetails"></div>
+</section>
 
-    async function installApp() {
-      if (!deferredInstallPrompt) {
-        alert("التثبيت التلقائي غير متاح حالياً في هذا المتصفح. افتح قائمة المتصفح واختر تثبيت التطبيق.");
-        return;
-      }
+<section id="orderPage" class="page">
+  <button class="back-button" onclick="showPage('detailsPage')">رجوع ←</button>
+  <h2 class="section-title">إتمام الطلب</h2>
 
-      deferredInstallPrompt.prompt();
-      const result = await deferredInstallPrompt.userChoice;
+  <div class="panel">
+    <h3 id="orderServiceName"></h3>
+    <p id="orderDescription"></p>
+    <p id="orderUnitPrice" class="price"></p>
 
-      if (result.outcome === "accepted") {
-        closeInstall();
-      }
+    <div class="field">
+      <label for="orderQuantity">الكمية</label>
+      <input id="orderQuantity" type="number" min="1" value="1">
+    </div>
 
-      deferredInstallPrompt = null;
-    }
+    <div class="total-box" id="orderTotal">الإجمالي: 0</div>
+  </div>
 
-    window.addEventListener("appinstalled", () => {
-      closeInstall();
-      document.getElementById("installBanner").style.display = "none";
-    });
+  <form id="orderForm" class="panel">
+    <div class="field">
+      <label for="customerName">اسم العميل</label>
+      <input id="customerName" required>
+    </div>
 
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js", {
-          scope: "./"
-        }).catch(error => {
-          console.error("Service worker registration failed:", error);
-        });
-      });
-    }
-  </script>
+    <div class="field">
+      <label for="customerPhone">رقم الهاتف</label>
+      <input id="customerPhone" type="tel" required>
+    </div>
 
-</body>
- </html>
- 
+    <div class="field">
+      <label for="customerAddress">مكان المناسبة أو الخدمة</label>
+      <input id="customerAddress" required>
+    </div>
+
+    <div class="field">
+      <label for="serviceDate">موعد المناسبة أو الخدمة</label>
+      <input id="serviceDate" type="datetime-local">
+    </div>
+
+    <div class="field">
+      <label for="paymentMethod">طريقة الدفع</label>
+      <select id="paymentMethod">
+        <option value="نقداً">نقداً</option>
+        <option value="تحويل مصرفي">تحويل مصرفي</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="orderNotes">ملاحظات إضافية</label>
+      <textarea id="orderNotes" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="gold-button" id="submitOrder">
+      تأكيد الطلب
+    </button>
+
+    <div id="orderResult" class="notice hidden"></div>
+  </form>
+</section>
+
+<section id="aboutPage" class="page">
+  <h2 class="section-title">عن التطبيق</h2>
+  <div class="panel">
+    <h3>الدبل للخدمات</h3>
+    <p>الدبل نجم جديد في سماء السودان 🇸🇩</p>
+  </div>
+</section>
+
+<section id="loginPage" class="page">
+  <button class="back-button" onclick="showPage('homePage')">رجوع ←</button>
+  <h2 class="section-title">دخول الإدارة</h2>
+
+  <form id="loginForm" class="panel">
+    <div class="field">
+      <label for="loginEmail">البريد الإلكتروني</label>
+      <input id="loginEmail" type="email" required>
+    </div>
+
+    <div class="field">
+      <label for="loginPassword">كلمة المرور</label>
+      <input id="loginPassword" type="password" required>
+    </div>
+
+    <button type="submit" class="gold-button">تسجيل الدخول</button>
+    <p id="loginMessage"></p>
+  </form>
+</section>
+
+<section id="adminPage" class="page">
+  <div class="panel">
+    <h2 class="section-title">لوحة إدارة الدبل</h2>
+    <p id="adminWelcome"></p>
+    <button class="back-button" onclick="logout()">تسجيل الخروج</button>
+  </div>
+
+  <div id="adminDashboard">
+    <div class="stats-grid" id="adminStats"></div>
+    <h2 class="section-title">أقسام الإدارة</h2>
+    <div class="admin-grid" id="adminCards"></div>
+  </div>
+
+  <div id="adminModule" class="panel hidden">
+    <button class="back-button" onclick="backToAdmin()">رجوع للوحة الإدارة ←</button>
+    <h2 id="adminModuleTitle" class="section-title"></h2>
+    <div id="adminModuleContent"></div>
+  </div>
+</section>
+
+<nav class="bottom-nav">
+  <button onclick="showPage('homePage')"><span>⌂</span>الرئيسية</button>
+  <button onclick="callOffice()"><span>☎</span>اتصال مباشر</button>
+  <button onclick="whatsappOffice()"><span>◉</span>واتساب</button>
+  <button onclick="showPage('aboutPage')"><span>ⓘ</span>عن التطبيق</button>
+</nav>
+
+<footer>الدبل للخدمات © 2026</footer>
+
+</div>
